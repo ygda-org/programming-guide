@@ -25,7 +25,7 @@ Before you even start setting up your project, there are some things you should 
 
 ### 1. Download Godot
 
-In this project, as well as in TJ-RPJ, we will be using **4.4-stable**, which you can download [here](https://godotengine.org/download/archive/4.4-stable/) for Windows, macOS, or Linux.  
+In this project, as well as in TJ-RPG, we will be using **4.4-stable**, which you can download [here](https://godotengine.org/download/archive/4.4-stable/) for Windows, macOS, or Linux.  
 
 > Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really recommend you use the local editor though.*
 
