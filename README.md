@@ -4,9 +4,9 @@ Welcome to the YGDA programming guide! This guide will give you a basic introduc
 
 This guide will walk you through on creating a **simple 2D platformer** with pre-created pixel art assets. 
 
-The tutorial will be split into chapters to be easily digestible. We encourage you to experiment by yourself after you finish this tutorial. 
->Don't get stuck in tutorial hell!
+The tutorial will be split into chapters to be easily digestible. We encourage you to experiment by yourself after you finish this tutorial. Don't get stuck in tutorial hell!
 
+> Throughout the tutorial, if you see anything you think is missing or can be improved upon, feel free to make a PR or issue addressing your concerns!
 ---
 
 ## Working in Godot
