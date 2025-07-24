@@ -1,6 +1,6 @@
 # YGDA Programming Guide
 
-Welcome to the YGDA programming guide! This guide will give you a basic introduction to the Godot game engine. By the end, you should have the basic knowledge to start making your own games. No previous Godot or game dev experience is needed! Some experience in a programming language, like java or python, will be beneficial though.
+Welcome to the YGDA programming guide! This guide will give you a basic introduction to the Godot game engine. By the end, you should have the basic knowledge to start making your own games. No previous Godot or game dev experience is needed! You shold have some experience in a programming language like python or java though. 
 
 This guide will walk you through on creating a **simple 2D platformer** with pre-created pixel art assets. 
 
