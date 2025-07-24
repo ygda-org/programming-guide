@@ -28,7 +28,7 @@ Nodes are the building blocks to your scenes, and thus, your game. They can fulf
 ![sprite in inspector](../images/section-1/sprite_inspector.png)
 5) Now, we need a hitbox for our player. Add a `CollisionShape2d` as a child of the player node.   
 ![player with collision](../images/section-1/player_with_collision.png)
-6) The `CollisionShape2d` still doesn't have a shape yet. In the inspector, select the shape field dropdown and select `New RectangleShape2D`. Then resize the blue rectangle in the Scene Dock ot fit the player sprite.  
+6) The `CollisionShape2d` still doesn't have a shape yet. In the inspector, select the shape field dropdown and select `New RectangleShape2D`. Then resize the blue rectangle in the Scene Dock to fit the player sprite.  
 ![player hitbox](../images/section-1/player_hitbox.png)
 
 Now, save these scene as PLayer.tscn with `Control + S` or from the `Scene` tab from the top-leftmost bar. You should create a scenes folder for better organization.  
