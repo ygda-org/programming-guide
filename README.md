@@ -62,8 +62,8 @@ Now continue with these steps:
 
     *This is because we will be using pixel art in our game, and we need the images to be pixel-perfect.*
 
-    - `Display -> Window -> Viewport Width`: **600**
-    - `Display -> Window -> Viewport Height`: **320**
+    - `Display -> Window -> Viewport Width`: **960**
+    - `Display -> Window -> Viewport Height`: **540**
 
     *These can be changed based on preference, but should be alright for our purposes.*
 
