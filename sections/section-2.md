@@ -40,11 +40,24 @@ Now we have imported our tileset and can start creating the actual stage for our
 
 ## Creating stage
 
-With tilesets, you can make environments with a consisten visual style, without having to draw assets for each seperate part of a game. You can take some artistic freedom here with level deisgn.
+With tilesets, you can make environments with a consistent visual style, without having to draw assets for each seperate part of a game. You can take some artistic freedom here with level deisgn.
 
 You can select the different tiles and paint them in the workspace. There is a rectangle tool and erase tool at the top of the bottom dock as well. Go ahead and make an interesting level!
-![making level](../images/section-2/painting-scene.png) 
+![making a level](../images/section-2/painting-scene.png) 
 
 ## Testing the game
 
-> To be continued...
+If you did everything right, now you should have a playable game! First though we have to select the scene godot should start the game from. Right click on `world.tscn` on the filesystem and press "Set as Main Scene".    
+![setting main scene](../images/section-2/setting-main-scene.png)
+
+
+Now we can test out the game by pressing the play icon on the top right of the screen. This should pop up a new window where you can test and debug the game. When you press the left and right arrow keys, the player should be able to move. You should also be able to fall off the edge. 
+
+![debug test](../images/section-2/debug.png) 
+
+
+This game is kind of boring though, as our player can't jump at all, defeating the whole point of a platformer. Lets fix that in the next section.
+
+---
+
+You can now move on to the next section [here](./section-3.md).
