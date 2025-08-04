@@ -6,6 +6,7 @@ Right now, our player can walk left and right and can also fall off a cliff! How
 
 Before we add jumping, lets improve how our script detects movement. Navigate to the project settings from the project button on the top left of the godot toolbar. Go to the "Input Map" tab.    
 
+> With an input map, you can create actions that are triggered by a set of events. Events can be mouse clicks, keyboard presses, conroller pressses, etc. An action can have multiple events that trigger it. You can see the status of these actions with the built in `Input` global, for example: `Input.is_action_pressed("<your_event>")`.
 
 Remember how in your player movement script you called `Input.is_action_pressed("ui_right")` to detect the action of the player pressing the right arrow key? We did that earlier for simplicity, but it's best practice to make your own input map with your own actions and respective inputs. You can add one action and make multiple events trigger it, like making the right arrow key and `a` both trigger the move right event. Go ahead and add 3 actions named `Left`, `Right`, and `Jump`. Type the action name then press the add button right next to it. 
 
@@ -24,7 +25,7 @@ Now that you have your own input map, you no longer have to use the default `ui_
 
 ## Finally, adding jumping
 
-Add an extra if clause to your script that triggers when the player triggers the `Jump` action. Instead of using `Input.is_action_pressed("Jump")`, use `Input.is_action_just_pressed("Jump")` so that player can't spam jump by holding down the jump key. Also, the player should only be able to jump when they are on the floor, which the `CharacterBody2D` function, `is_on_floor()` will inform you of. Go ahead and make the additions to your script, we will give you the final script, but try coding it yourself!
+Add an extra if clause to your script that triggers when the player triggers the `Jump` action. Instead of using `Input.is_action_pressed("Jump")`, use `Input.is_action_just_pressed("Jump")` so that player can't spam jump by holding down the jump key. Also, the player should only be able to jump when they are on the floor, which the `CharacterBody2D` function, `is_on_floor()` will inform you of. Your script should add a certain constant amount of jump power to `velocity.y`. This constant should be declared at the start of your script. It should also be a negative number. Go ahead and make the additions to your script, we will give you the final script, but try coding it yourself!
 
 
 Your script should look something like this now:
@@ -32,8 +33,8 @@ Your script should look something like this now:
 ```gdscript
 extends CharacterBody2D
 
-const SPEED: int = 200 # You can play around with this value!
-const JUMP_POWER: int = -300
+const SPEED: int = 200 
+const JUMP_POWER: int = -300 # You can play around with this value if you want.
 
 var x_direction: int = 0
 
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y += JUMP_POWER
+		velocity.y += JUMP_POWER # Add the jump power
 	
 	if Input.is_action_pressed("Left"):
 		x_direction = -1
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 
 ## Adjusting camera
 
-The camera right now feels a little cramped, lets fix that by adjusting the zoom. Go to your `world.tscn` scene and, in the scene tree, select your camera. Now go to the inspector and you can adjust this. Set it to 2. The camera also follows the player closely and feels very rigid. We can fix this by enabled "Position Smoothing" for the camera in the inspector.   
+The player looks a little small, so lets fix that by adjusting the zoom. Go to your `world.tscn` scene and, in the scene tree, select your camera. Now go to the inspector and adjust the zoom property. Set it to 2. The camera also follows the player closely and feels very rigid. We can fix this by also enabling "Position Smoothing" for the camera in the inspector.   
 
 ![adjusting camera](../images/section-3/adjusting-camera.png)
 
