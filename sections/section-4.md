@@ -49,11 +49,11 @@ You can try implementing the script right now if you are comfortable, but we wil
 > Try debugging and playtesting the script yourself!
 
 Your script should:
-    - When the player presses the left action, flip the sprite
-    - When the player presses the right action, unflip the sprite
-    - If `x_direction` is not 0 and the player is on the floor, play `run`
-    - If the player isn't on the floor and the `velocity.y` is negative (player is going up), play the jump animation
-    - If the player isn't on the floor and the `velocity.y` is positive (player is going down), play the fall animations
+- When the player presses the left action, flip the sprite
+- When the player presses the right action, unflip the sprite
+- If `x_direction` is not 0 and the player is on the floor, play `run`
+- If the player isn't on the floor and the `velocity.y` is negative (player is going up), play the jump animation
+- If the player isn't on the floor and the `velocity.y` is positive (player is going down), play the fall animations
 
 
 Your script should look something like this now:
