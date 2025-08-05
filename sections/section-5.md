@@ -45,7 +45,7 @@ func _on_body_entered(body: Node2D) -> void:
 ```
 The `on_body_entered(body: Node2D) -> void` function will be called whenever any body enters the death zone. However, we don't know for sure if this body is a player. If later on we add more bodies to our game, how will we differentiate between the player and other bodies? We can do this with groups.
 
-> A body in godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physcal interactions, like a player entering a cutscene zone.
+> A body in godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physcal interactions, like a player entering a zone that triggers their death.
 
 1) Go into the player scene and, where the inspector is, go into the "Node" tab. Then navigate to the "Groups" area.
 
