@@ -54,7 +54,7 @@ Your script should:
     - If `x_direction` is not 0 and the player is on the floor, play `run`
     - If the player isn't on the floor and the `velocity.y` is negative (player is going up), play the jump animation
     - If the player isn't on the floor and the `velocity.y` is positive (player is going down), play the fall animations
--
+
 
 Your script should look something like this now:
 ```gdscript
