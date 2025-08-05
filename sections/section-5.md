@@ -190,4 +190,4 @@ func die() -> void:
 
 ---
 
-Now, your player should have a die animation when they fall off the edge. This is looking more like a platformer! But there aren't any enemies to get past! We will add some in the [next section](./section-5.md).
+Now, your player should have a die animation when they fall off the edge. This is looking more like a platformer! But there aren't any enemies to get past! We will add some in the [next section](./section-6.md).
