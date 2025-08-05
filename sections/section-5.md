@@ -43,6 +43,8 @@ func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 ```
+> Functions that aren't called directly in a the script, rather by the engine, are prefixed with an underscore like `_on_body_entered` is in the above script.
+
 The `on_body_entered(body: Node2D) -> void` function will be called whenever any body enters the death zone. However, we don't know for sure if this body is a player. If later on we add more bodies to our game, how will we differentiate between the player and other bodies? We can do this with groups.
 
 > A body in godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physcal interactions, like a player entering a zone that triggers their death.
