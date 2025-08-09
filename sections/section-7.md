@@ -42,7 +42,7 @@ Now, go back to your `player.gd` script and drag the `disc.tscn` scene into your
 
 > We have to load scenes before we can put them in a scene programatically, unlike of placing them in a scene preemptively. We use `preload()` because the path is known during compile time. You would use `load()` if it's not.
 
-The functions `preload(path)` and `load(path)` will load the scene from the filesystem and return a resource correspondent to that scene. You can call `.instanciate(path)` on the resource to get an instance of the scene. The scene won't instantly appear as you still need to add it to the scene tree. You can add it to the scene by calling `add_child(node)` on another node currently on the scene. If you want to add it to the current scene, you can call `get_tree().current_scene.add_child(node)`.
+The functions `preload(path)` and `load(path)` will load the scene from the filesystem and return a resource correspondent to that scene. You can call `.instantiate(path)` on the resource to get an instance of the scene. The scene won't instantly appear as you still need to add it to the scene tree. You can add it to the scene by calling `add_child(node)` on another node currently on the scene. If you want to add it to the current scene, you can call `get_tree().current_scene.add_child(node)`.
 
 So, you would call `DISC.instanciate()` and then add it to the current scene.
 
