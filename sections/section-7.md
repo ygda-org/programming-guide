@@ -44,7 +44,7 @@ Now, go back to your `player.gd` script and drag the `disc.tscn` scene into your
 
 The functions `preload(path)` and `load(path)` will load the scene from the filesystem and return a resource correspondent to that scene. You can call `.instantiate(path)` on the resource to get an instance of the scene. The scene won't instantly appear as you still need to add it to the scene tree. You can add it to the scene by calling `add_child(node)` on another node currently on the scene. If you want to add it to the current scene, you can call `get_tree().current_scene.add_child(node)`.
 
-So, you would call `DISC.instanciate()` and then add it to the current scene.
+So, you would call `DISC.instantiate()` and then add it to the current scene.
 
 > Anything that is saved and loaded from the filesystem is a resource. You can read more about resources and loading [here](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html), in the Godot docs. **Nodes** give you functionality, and **Resources** are just date containers.
 
