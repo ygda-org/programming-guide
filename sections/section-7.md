@@ -130,8 +130,89 @@ func die() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
+Lets start actually programming the disks movement in the next part.
+
+## Adding enemy grouop
+
+Before we actually get to the programming, we need to have a way to check if something the disc hits is actually an enemy. Go back to your enemy scene and make a new global group called "Enemy". Add the enemy scene to this group.
+
+![adding enemy to group](../images/section-7/adding-enemy-group.png) 
+
 ## Programming the disc
 
-We can spawn a disc, but it doesn't move or kill enemies yet. Lets begin to program that. Return to the disc scene and attach a script to the root node.
+Now that we have a way of detecting what is an enemy, go back to your disc scene and attach a script to the root node. Here is what this script is going to be doing:
+- Move a certain amount of pixels each frame in a variable horizontal direction
+    - Make a constant speed variable
+    - Make a x direction variable
+    - Add this speed to `position.x` each frame multiplied by the `delta` parameter in `_physics_process`
+        - `delta` is the time since the last call to `_physics_process`, and `_physics_process` is generally called 60 times a second. So if we want the disc to move at, for example, 100 pixels a second, we would multiply this speed by `delta`. If you didn't, it would go 300 pixels 60 times a second.
+- Use a signal to detect when another body enters the disc's collision area (use the `body_entered` signal)
+    - If the body is in the group of enemy, call `body.queue_free()` to delete it. (we will later make an enemy death animation)
+    - After, call `queue_free()` to destroy the disc itself.
+        - Don't do this if the body the disc hit is the player though, since the disc starts at the players position. Remember how to check if the body is the player?
 
-> To be continued...
+Your movement logic should be in `_physics_process`. Also, you need to attach the `body_entered` signal to your script:
+
+![attaching body entered signal](../images/section-7/attaching-signal.png)
+
+Now, armed with that knowledge, go ahead and try programming the disc yourself!
+
+Here is what your script should look something like:
+```gdscript
+extends Area2D
+
+const SPEED: int = 225
+
+var x_direction: int = 1
+
+func _physics_process(delta: float) -> void:
+	position.x += SPEED * x_direction * delta
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body.queue_free() # Destroy the enemy
+	
+	if not body.is_in_group("Player"):
+		queue_free() # Destroy the disc if the body isn't the player
+```
+
+There is a problem though, the disc only goes right! Lets go back to our player script and modify how the disc is spawned in. We will modify the `x_direction` of the disc depending on what way the players sprite is facing before adding it to the tree:
+
+```gdscript
+	if Input.is_action_pressed("Shoot") and $DiskCooldown.is_stopped():
+		$DiskCooldown.start()
+		var new_disc: Area2D = DISC.instantiate()
+		new_disc.position = position
+		
+		if $AnimatedSprite2D.flip_h == true: # Check what way the player is facing
+			new_disc.x_direction = -1
+		else:
+			new_disc.x_direction = 1
+		
+		get_tree().current_scene.add_child(new_disc) 
+```
+
+Now, you have a fully functional throwable weapon for the player to use! There is one small problem still however.
+
+## Destroying the disc when it's out of sight
+
+Right now, your disc move until it hits something. But what if it goes off the map into the infinite void around our map? We don't want an endless pileup of useless discs of screen, so lets make it so the disc self destructs when it's off the player's screen. 
+
+1) Go to the disc scene and add a `VisibleOnScreenNotifier2D` as a child of the root node.
+
+![adding screen notifier](../images/section-7/adding-screen-notifier.png)
+
+2) Go to the `VisibleOnScreenNotifier2D`'s signals in the `Node` page of the inspector, and attach the `screen_exited` signal to the script.
+
+![adding notifier signal](../images/section-7/adding-notifier-signal.png) 
+
+3) When this signal is emitted, simply call `queue_free` to destroy the disc when its out of the scene.
+```gdscript
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+```
+
+---
+
+With that, you are basically done with this tutorial! We have a functioning 2D platformer game with enemies and ways for the player to defend themselves. [Here](./final.md) is the next section, where you create your OWN mechanic!
+
