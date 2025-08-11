@@ -1,6 +1,6 @@
 # YGDA Programming Guide
 
-Welcome to the YGDA programming guide! This guide will give you a basic introduction to the Godot game engine. By the end, you should have the basic knowledge to start making your own games. No previous Godot or game dev experience is needed! You shold have some experience in a programming language like python or java though. 
+Welcome to the YGDA programming guide! This guide will give you a basic introduction to the Godot game engine. By the end, you should have the basic knowledge to start making your own games. No previous Godot or game dev experience is needed! You should have some experience in a programming language like Python or Java, though. 
 
 This guide will walk you through on creating a **simple 2D platformer** with pre-created pixel art assets. 
 
@@ -17,7 +17,7 @@ Before you even start setting up your project, there are some things you should 
 - Stay organized and keep track of your files and assets
 - If anything is unclear, you can ask an officer for help or use the [Godot Docs](https://docs.godotengine.org/en/4.4/). We recommend trying to figure it out on your own first, but we're happy to help.
 
-> You can join the discord for help and advice!
+> You can join our [Discord server](https://discord.com/invite/b6adBpmh6T) for help and advice!
 
 ---
 
@@ -27,12 +27,12 @@ Before you even start setting up your project, there are some things you should 
 
 In this project, as well as in TJ-RPG, we will be using **4.4-stable**, which you can download [here](https://godotengine.org/download/archive/4.4-stable/) for Windows, macOS, or Linux.  
 
-> Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really recommend you use the local editor though.*
+> Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really recommend you use the local editor, though.*
 
 ### 2. Download the assets
 
 This repo contains the assets you will be using in the game.  
-*Alternatively, make your own! This will be really time-consuming, wouldn't recommend if it's your first time using Godot.*
+*Alternatively, make your own! This will be really time-consuming-- wouldn't recommend if it's your first time using Godot.*
 
 - If you have Godot on your computer, navigate to the [programming guide repo](https://github.com/ygda-org/Programming-Guide) (which you probably are already on), download the zip file, and extract the contents.
 
