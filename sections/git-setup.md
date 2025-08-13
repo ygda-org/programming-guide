@@ -20,10 +20,10 @@ In GitHub, navigate to `Your Repositories`. You should see a green `New` button 
 You can provide a name (i.e. "ygda-guide-game") and set its visibility. We will ask you to keep this repository public so officers are able to easily access your game.
 <p align="center" width="100%"><img src="../images/git-setup/new_repo_creation.png" width=50%></p>
 
-Congrats! You've just made a repository! Now, copy the link to your repository, since it will come in handy soon.
+You've just made a repository! Now, copy the link to your repository, since it will come in handy soon.
 
-### GitHub Desktop vs. Command Line
-You have two different methods you can go about working with GitHub now: GitHub Desktop or via a terminal. 
+### GitHub Desktop vs. Command Line (CLI)
+You have two different methods you can go about working with GitHub now: GitHub Desktop or via the CLI.
 There honestly isn't a choice that is "better" than the other, so it just depends on your own preferences.
 
 >Navigate to the [GitHub CLI tutorial page](./git-cli-setup.md) if you'd prefer using it over GitHub Desktop.
@@ -50,11 +50,14 @@ However, you've only committed these changes locally! Click `Publish branch` to 
 >If you check the `History` tab, you should be able to see your newly made commit message and changes made.
 
 ### Final steps
-In the Godot Project Manager, you can reimport your project with the repository file path. This issue can be avoided in the future if you just create a repository project path prior to creating a new game in Godot.
+If you reopen the Godot Project Manager, you may find your game marked as Missing. This is because your game is not longer pointed to the original path specified!
+<p align="center" width="100%"><img src="../images/git-setup/missing_project.png" width=80%></p>
+To fix this, you can reimport your project with the repository file path. This issue can be avoided in the future if you just create a repository project path prior to creating a new game in Godot.
 <p align="center" width="100%"><img src="../images/git-setup/navigate_reimport.png" width=50%></p>
 
-You're officially done with our programming guide! Share your GitHub repository link with an officer to show off your amazing work!
+Congrats! You're officially done with our programming guide! Share your GitHub repository link with an officer to show off your amazing work!
 
 ### Furthering your knowledge
+
 
 talk about other git stuff like pulling, branches, etc etc etc in preparation for tj rpg
