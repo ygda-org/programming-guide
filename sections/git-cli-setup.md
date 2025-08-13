@@ -5,3 +5,5 @@ otherwise i'll js steal smth online
 
 To clone a repisitory, use "git clone https://github.com/examplerepositoryurl.git"
 From here, you can make any changes you want
+Use "git pull" to update your branch
+Use "git commit" to commit. Also pretty sure this won't work for new club members cuz you need permissions to commit like this
