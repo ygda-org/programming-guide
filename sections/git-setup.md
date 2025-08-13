@@ -1,6 +1,6 @@
 # Setting Up GitHub
 
-In this section, we will be creating a GitHub repository and committing your work there to share with an officer! 
+In this section, we will be creating a GitHub repository and pushing your work there to share with an officer! 
 You're at the very last step of this tutorial, and this is how we can verify you have completed all your work.
 
 ---
@@ -12,7 +12,7 @@ GitHub is a widely used cloud-based platform for version control and collaborati
 ### Installing Git & Creating a GitHub Account
 Firstly, GitHub requires Git, a version-control system (VCS). Depending on what platform you use, you may follow the respective tutorial for Git installation [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-In the meantime, if you don't have a GitHub account already, you should sign up for one at [github.com](https://github.com/)!
+>In the meantime, if you don't have a GitHub account already, you should sign up for one at [github.com](https://github.com/)!
 
 ### Creating a new repository
 In GitHub, navigate to `Your Repositories`. You should see a green `New` button that will allow you to create a new repository. 
@@ -26,7 +26,7 @@ Congrats! You've just made a repository! Now, copy the link to your repository, 
 You have two different methods you can go about working with GitHub now: GitHub Desktop or via a terminal. 
 There honestly isn't a choice that is "better" than the other, so it just depends on your own preferences.
 
-Navigate to the [GitHub CLI tutorial page](./git-cli-setup.md) if you'd prefer using it over GitHub Desktop.
+>Navigate to the [GitHub CLI tutorial page](./git-cli-setup.md) if you'd prefer using it over GitHub Desktop.
 
 ### GitHub Desktop Installation:
 You can navigate to [github.com/apps/desktop](https://github.com/apps/desktop) and follow the installation process. 
@@ -47,7 +47,7 @@ Provide a summary of the work you've done (i.e. "Completed YGDA Programming Guid
 However, you've only committed these changes locally! Click `Publish branch` to push your changes to the remote, or central, repository.
 <p align="center" width="100%"><img src="../images/git-setup/publish_branch.png" width=80%></p>
 
-If you check the `History` tab, you should be able to see your newly made commit message and changes made.
+>If you check the `History` tab, you should be able to see your newly made commit message and changes made.
 
 ### Final steps
 In the Godot Project Manager, you can reimport your project with the repository file path. This issue can be avoided in the future if you just create a repository project path prior to creating a new game in Godot.
