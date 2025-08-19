@@ -2,7 +2,7 @@
 
 Welcome to the YGDA programming guide! This guide will give you a basic introduction to the Godot game engine. By the end, you should have the basic knowledge to start making your own games. No previous Godot or game dev experience is needed! You should have some experience in a programming language like Python or Java, though. 
 
-This guide will walk you through on creating a **simple 2D platformer** with pre-created pixel art assets. 
+This guide will walk you through on creating a **simple 2D platformer** with pre-made pixel art assets. 
 
 The tutorial will be split into chapters to be easily digestible. We encourage you to experiment by yourself after you finish this tutorial. Don't get stuck in tutorial hell!
 
@@ -27,7 +27,7 @@ Before you even start setting up your project, there are some things you should 
 
 In this project, as well as in TJ-RPG, we will be using **4.4-stable**, which you can download [here](https://godotengine.org/download/archive/4.4-stable/) for Windows, macOS, or Linux.  
 
-> Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really recommend you use the local editor, though.*
+> Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really highly recommend you use the local editor, though.*
 
 ### 2. Download the assets
 
