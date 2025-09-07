@@ -5,8 +5,8 @@ Congrats on finishing the actual tutorial! Now that you are familiar with the co
 - Limitied disks, i.e you have to go around picking them up
 - Power ups
 - Title screens and other UI
-- New attcks
-- More levles, level system
+- New attacks
+- More levels, level system
 
 This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, make sure to consult the [godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend. 
 
