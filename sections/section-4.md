@@ -1,6 +1,6 @@
 # Character Animations
 
-Our character is a still image right now, so lets add some dynamic animations to make them feel more alive! This animations will respond to their direction and status.
+Our character is a still image right now, so lets add some dynamic animations to make them feel more alive! These animations will respond to their direction and status.
 
 ---
 
@@ -19,30 +19,30 @@ Our character is a still image right now, so lets add some dynamic animations to
 
 ## Creating the animations
 
-1) Lets make the running animation first. Click on the folder icon on the SpriteFrame dock and select and open the images `run1.png` to `run4.png`. You can play around with the FPS values. Press play to see a preview of the animation in the scene dock.     
+1) Let's make the running animation first. Click on the folder icon on the SpriteFrame dock and select and open the images `run1.png` to `run4.png`. You can play around with the FPS values. Press play to see a preview of the animation in the scene dock.     
 
 ![importing images](../images/section-4/importing_animations.png) 
 
 2) Double click on the "default" and rename it to "run".
 
-3) Our character also needs an idle animation, so create a new animation named "idle" and import just `idle c.png`. Set the FPS of this animation to 0 since it's just one frame.
+3) Our character also needs an idle animation, so create a new animation named "idle" and import just `idle c.png`. Set the FPS of this animation to 0 because it's only one frame.
 
 ![idle anim](../images/section-4/idle_animation.png) 
 
-4) Now repeat for the jump and fall animation. Both of these will be one sprite. You can use `fall.png` for the fall sprite and `attack.png` as the fall sprite. You can play with these values if you'd like. Remember to set the FPS to 0 if it's just one frame though.    
+4) Now repeat for the jump and fall animations. Both of these will be one sprite. You can use `fall.png` and `attack.png` for these animations. You can play around with the specifics if you'd like. Remember to set the FPS to 0 if it's just one frame though.    
 
 ![animations](../images/section-4/all_animations.png)
 
 
 Right now, the animations are juts sitting there. It's time to code these animations into the player movement script. Head back to `player.gd`.
 
-> Remember to save throughout this guide! (control-s)
+> This is your friendly neighborly reminder to remember to save throughout this guide! (control-s)
 
 ## Programming the animations
 
 To play an animation, you can use the code `$AnimatedSprite2D.play("animation_name")`. Also, to flip the sprite horizontally, you can use the code `$AnimatedSprite2D.flip_h = true` to set that property of the `AnimatedSprite2D` to true. You can set it to false to flip it back.
 
-> '$' in godot is use to access a particular child node based on it's name. When you type `$AnimatedSprite2D`, Godot will search the `Player`'s child nodes and return your `AnimatedSprite2D` node. If it's not found, it will return null and error out if you try to dereference it (meaning call any of it's functions, access it's data, yadayada). Alternatively, you can use get_node(name: String)
+> '$' in godot is used to access a particular child node based on it's name. When you type `$AnimatedSprite2D`, Godot will search the `Player`'s child nodes and return your `AnimatedSprite2D` node. If it's not found, it will return null and error out if you try to dereference it (meaning call any of it's functions, access it's data, yadayada). Alternatively, you can use get_node(name: String) which can be helpful when you have a seperate scene as a reference (and thus can't use '$').
 
 You can try implementing the script right now if you are comfortable, but we will give you some hints about what your script should do and later on the actual script. We recommend trying to program it as independently as possible though! 
 
@@ -53,7 +53,7 @@ Your script should:
 - When the player presses the right action, unflip the sprite
 - If `x_direction` is not 0 and the player is on the floor, play `run`
 - If the player isn't on the floor and the `velocity.y` is negative (player is going up), play the jump animation
-- If the player isn't on the floor and the `velocity.y` is positive (player is going down), play the fall animations
+- If the player isn't on the floor and the `velocity.y` is positive (player is going down), play the fall animation
 
 
 Your script should look something like this now:
