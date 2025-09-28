@@ -1,6 +1,6 @@
 # Improving our player
 
-Right now, our player can walk left and right and can also fall off a cliff! However, we can't jump off the cliff, so lets fix that.
+Right now, our player has the ability to walk left, to walk right, and to fall of a cliff! However, we can't jump off the cliff yet, so lets fix that.
 
 ## Using an Input Map
 
@@ -8,12 +8,12 @@ Before we add jumping, lets improve how our script detects inputs. Navigate to t
 
 > With an input map, you can create actions that are triggered by a set of events. Events can be mouse clicks, keyboard presses, conroller pressses, etc. An action can have multiple events that trigger it. You can see the status of these actions with the built in `Input` global, for example: `Input.is_action_pressed("<your_event>")`.
 
-Remember how in your player movement script you called `Input.is_action_pressed("ui_right")` to detect the action of the player pressing the right arrow key? We did that earlier for simplicity, but it's best practice to make your own input map with your own actions and respective inputs. You can add one action and make multiple events trigger it, like making the right arrow key and `a` both trigger the move right event. Go ahead and add 3 actions named `Left`, `Right`, and `Jump`. Type the action name then press the add button right next to it. 
+Do you remember how in your player movement script you called `Input.is_action_pressed("ui_right")` to detect the action of the player pressing the right arrow key? We did that earlier for simplicity, but it's best practice to make your own input map with your own actions and respective inputs. You can add one action and make multiple events trigger it, like making the right arrow key and `a` both trigger the move right event. Go ahead and add 3 actions named `Left`, `Right`, and `Jump`. Type the action name then press the add button right next to it. 
 
 ![input map tab](../images/section-3/adding-actions.png) 
 
 
-Now you can add events-i.e. mouse and keyboard actions- to each respective input. Press the `+` icon next to each of your new actions then a UI will appear where you can select the event you want to trigger that action. Go ahead and add whatever inputs you see fit for each event.    
+Now you can add events--i.e. mouse and keyboard actions--to each respective input. Press the `+` icon next to each of your new actions then a UI will appear where you can select the event you want to trigger that action. Go ahead and add whatever inputs you see fit for each event.    
 
 ![adding actions](../images/section-3/adding-events.png) 
 
@@ -25,7 +25,7 @@ Now that you have your own input map, you no longer have to use the default `ui_
 
 ## Finally, adding jumping
 
-Add an extra if clause to your script that triggers when the player triggers the `Jump` action. Instead of using `Input.is_action_pressed("Jump")`, use `Input.is_action_just_pressed("Jump")` so that player can't spam jump by holding down the jump key. Also, the player should only be able to jump when they are on the floor, which the `CharacterBody2D` function, `is_on_floor()` will inform you of. Your script should add a certain constant amount of jump power to `velocity.y`. This constant should be declared at the start of your script. It should also be a negative number. Go ahead and make the additions to your script, we will give you the final script, but try coding it yourself!
+Add an extra if clause to your script that triggers when the player triggers the `Jump` action. Instead of using `Input.is_action_pressed("Jump")`, use `Input.is_action_just_pressed("Jump")` so that player can't spam jump by holding down the jump key. Also, the player should only be able to jump when they are on the floor, which the `CharacterBody2D` function, `is_on_floor()` will inform you of. Your script should add a certain constant amount of jump power to `velocity.y`. This constant should be declared at the start of your script. It should also be a negative number. Go ahead and make the additions to your script. We will give you the final script, but try coding it yourself!
 
 
 Your script should look something like this now:
@@ -64,11 +64,11 @@ func _physics_process(delta: float) -> void:
 
 ## Adjusting camera
 
-The player looks a little small, so lets fix that by adjusting the zoom. Go to your `world.tscn` scene and, in the scene tree, select your camera. Now go to the inspector and adjust the zoom property. Set it to 2. The camera also follows the player closely and feels very rigid. We can fix this by also enabling "Position Smoothing" for the camera in the inspector.   
+The player looks a little small, so lets fix that by adjusting the zoom. Go to your `world.tscn` scene and, in the scene tree, select your camera. Now go to the inspector and adjust the zoom property. Set it to 2. The camera also follows the player closely and feels very rigid. We can fix this by also enabling "Position Smoothing" for the camera in the inspector. You can adjust the values until it feels right.
 
 ![adjusting camera](../images/section-3/adjusting-camera.png)
 
 
 ---
 
-Now our player can hop around and parkour around the scene, but its just a static image! In the [next section](./section-4.md) we wil add movement animations.
+Now our player can hop and parkour around the scene, but the player sprite's just a static image! In the [next section](./section-4.md) we wil add some animations.
