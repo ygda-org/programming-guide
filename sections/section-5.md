@@ -1,10 +1,10 @@
 # Killing the player
 
-In this section, we will add ways for our player to die, instead of falling into an endless grey void.
+In this section we will add ways for our player to die other than falling into an endless grey void.
 
 ## Creating a death zone
 
-We are gonna create a zone that kills the player immedietely upon entering. Any future scene that kills the player when they enter any area will use this scene.
+We are gonna create a zone that kills the player immedietely upon entering. Any future scene that kills the player when they enter an area will use this scene.
 
 1) Create a new scene with the root node as a `Area2D` and rename it to "DeathZone". Save it inside your scenes folder.
 
@@ -16,7 +16,7 @@ We are gonna create a zone that kills the player immedietely upon entering. Any 
 
 ![signals](../images/section-5/signals.png)
 
-> Here you can see the different signals the `Area2D` node has. Signals in godot are just another way for nodes to communicate with each other in a modular way.  They are basically messages that nodes emit when something happens, like something entering the `Area2D`'s collision area. Other nodes can attach to these signals and run code when they are emited. 
+> Here you can see the different signals the `Area2D` node has. Signals in godot are just another way for nodes to communicate with each other in a modular way. They are, basically, messages that nodes emit when something happens, like when something enters the `Area2D`'s collision area. Other nodes can attach to these signals and run code when they are emitted. 
 
 4) Double click on the signal `body_entered()` so we can check when a player enters the death zone, then connect it to your script by pressing "Connect".
 
@@ -43,13 +43,13 @@ func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 ```
-> Functions that aren't called directly in the script, rather by the engine, are prefixed with an underscore like `_on_body_entered` is in the above script.
+> Functions that aren't called directly in the script, rather by the engine, are prefixed with an underscore like `_on_body_entered` is in the above script. 
 
 The `on_body_entered(body: Node2D) -> void` function will be called whenever any body enters the death zone. However, we don't know for sure if this body is a player. If later on we add more bodies to our game, how will we differentiate between the player and other bodies? We can do this with groups.
 
 > A body in godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physcal interactions, like a player entering a zone that triggers their death.
 
-1) Go into the player scene and, where the inspector is, go into the "Node" tab. Then navigate to the "Groups" area.
+1) Go into the player scene and, where the inspector is, go into the "Node" tab. Then, navigate to the "Groups" area.
 
 ![groups](../images/section-5/groups.png)
 
@@ -71,7 +71,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 ## Adding a death boundary to our world scene
 
-1) Go to the world scene and add your `DeathZone` node you made earlier to it. Add a `CollishionShape2D` as a child of it.
+1) Go to the world scene and add your `DeathZone` node you made earlier to it. Add a `CollisionShape2D` node as a child.
 
 ![world scene tree with deathzon](../images/section-5/deathzone_boundry.png) 
 
@@ -81,7 +81,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 ![creating world border shape](../images/section-5/making_border.png) 
 
-3) Drag the boundary somewhere under the platform objects to where the player will only touch it if they fall off.
+3) Drag the boundary somewhere under the platform objects to a place such that the player will only touch it if they fall off.
 
 ![moving world boundary](../images/section-5/dragging_boundary.png) 
 
@@ -95,21 +95,21 @@ Return to your player script and create the `die()` function. This function shou
 - Set the player's `velocity` to a zero vector
     - Remember that the `velocity` is of type Vector2, and so you must use the constructor `Vector2(x, y)` to create a new `Vector2`s. You can also use the constant `Vector2.ZERO` to get a vector with values `(0, 0)`.
 - Lock the ability to move
-    - You can add a `bool` variable to the top of your script that is set to true when the player dies. In the main physics loop, return early if this variable is set to true.
-- Disable the players hitbox
-    - You can do this by refereing to the `CollisionShape2D` node on the player with `$CollisionShape2D` and setting the `disabled` property to true. You should do this with the function `$CollisionShape2D.set_deferred("disabled", true)`. You have to do it this way as messing with node properties in the middle of physics calculations can cause problems, and by calling it deferred, you are telling the engine to hold off on doing it till the end of the current frame.
-- Flip the characters sprite vertically
-    - Remember from the earlier section, you can set the `flip_v` property of the `AnimationPlayer2D` to true.
+    - You can add a `bool` variable to the top of your script that gets set to true when the player dies. In the main physics loop, return early if this variable is set to true.
+- Disable the player's hitbox
+    - You can do this by referring to the `CollisionShape2D` node on the player with `$CollisionShape2D` and setting the `disabled` property to true. You should do this with the function `$CollisionShape2D.set_deferred("disabled", true)`. You have to do it this way as messing with node properties in the middle of physics calculations can cause problems, and by calling it deferred, you are telling the engine to hold off on doing it till the end of the current frame (this will be very useful to remember for future games).
+- Flip the character's sprite vertically
+    - Remember from the earlier section that you can set the `flip_v` property of the `AnimationPlayer2D` to true.
 - Delay for a bit, then restart the scene
     - Use `get_tree().change_scene_to_file("path/to/scene")` with the path to your `world.tscn`. This will simply restart the world scene.
-    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the amount of time it delays.
+    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays.
 
-> When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting till that timer emmits the signal `timeout`.
+> When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting untill that timer emits the signal `timeout`.
 
 Try making and testing the script yourself! 
 
 
-Heres how your script should look like:
+Here's how your script should look like:
 ```gdscript
 extends CharacterBody2D
 
@@ -172,7 +172,7 @@ func die() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
-Now when your player falls off the edge, they should turn upside down and fall off the edge. The game should then eventually restart. But it's awkward how fast the player falls. Lets slow down the game a little when the player dies. We can set `Engine.time_scale` to slow down or speed the game. Any value between 0-1 will slow down the game. You can edit your `die()` function lie this:
+Now, when your player falls off the edge, they should turn upside down and fall off the screen. The game should then eventually restart. But it's awkward with how fast the player falls. Lets slow down the game a little when the player dies. We can set `Engine.time_scale` to slow down or speed the game. Any value from 0-1 will slow down the game. You can edit your `die()` function like this:
 ```gdscript
 const DELAY_TILL_RESTART: float = 2 # You will have to double this from what you had earlier
 
@@ -188,7 +188,7 @@ func die() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
-> If you slow down the game, all timers will slowdown too! You will have to double your time if you are slowing the game by half.
+> If you slow down the game, all timers will slow down too! You will have to double your time if you are slowing the game by half.
 
 ---
 
