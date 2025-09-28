@@ -19,24 +19,24 @@ Nodes are the building blocks to your scenes, and thus, your game. They can fulf
 
 ## Player Setup
 1) From the Scene Dock, create the new player scene by pressing `Other Node` and add a `CharacterBody2D` node to the current scenes
-    - A `ChracterBody2D` node is used for implementing moving objects, since this is the first node in this scene, it will automatically become the root node
+    - A `ChracterBody2D` node is used for implementing moving objects and, since this is the first node in this scene, it will automatically become the root node
 2) Double click on this newly created node and rename it to player
     - Always rename your root nodes as soon as possible to keep everything neat!
-3) Right click on the root player node and add a 'Sprite2D' node as a child of it.   
+3) Right click on the root player node and add a 'Sprite2D' node as a child.   
 ![player with sprite](../images/section-1/player_with_sprite.png) 
-4) From the asset file in the Filesystem, drag the `idle c.png` into the `Texture` field of the `Sprite2D` in the Inspector.  
+4) From the asset file in the Filesystem, drag `idle c.png` into the `Texture` field of the `Sprite2D` in the Inspector.  
 ![sprite in inspector](../images/section-1/sprite_inspector.png)
-5) Now, we need a hitbox for our player. Add a `CollisionShape2d` as a child of the player node.   
+5) Now, we need a hitbox for our player. Add a `CollisionShape2D` as a child of the player node.   
 ![player with collision](../images/section-1/player_with_collision.png)
-6) The `CollisionShape2d` still doesn't have a shape yet. In the inspector, select the shape field dropdown and select `New RectangleShape2D`. Then resize the blue rectangle in the Scene Dock to fit the player sprite.  
+6) The `CollisionShape2D` still doesn't have a shape yet. In the inspector, select the shape field dropdown and select `New RectangleShape2D`. Then, resize the blue rectangle in the Scene Dock to fit the player sprite.  
 ![player hitbox](../images/section-1/player_hitbox.png)
 
-Now, save these scene as `player.tscn` with `Control + S` or from the `Scene` tab from the top-leftmost bar. You should create a scenes folder for better organization.  
+Now, save these scenes as `player.tscn` by pressing `Control + S` or using the `Scene` tab from the top-leftmost bar. You should also create a scenes folder for better organization.  
 ![organized filesystem](../images/section-1/organized_filesystem.png)
 
-You have made a basic player scene! See how you add different nodes to a parent achieve different purposes like hitboxes or sprites? This is called 'Composition' and is used commonly used in godot to build modular and reusable game objects. 
+You have made a basic player scene! See how you can add different nodes to a parent to achieve different purposes like hitboxes or sprites? This is called 'Composition' and is used commonly used in godot to build modular and reusable game objects. 
 
-Excrept from [gotut.net](https://www.gotut.net/composition-in-godot-4/): **Composition is a design principle that involves creating complex objects by combining simpler, reusable components. Using components has the following advantages:**
+Excerpt from [gotut.net](https://www.gotut.net/composition-in-godot-4/): **Composition is a design principle that involves creating complex objects by combining simpler, reusable components. Using components has the following advantages:**
 
 - Reusability: Components can be reused across different parts of the game.
 - Modularity: Components are independent, allowing you to mix and match them as needed.
@@ -46,7 +46,7 @@ Excrept from [gotut.net](https://www.gotut.net/composition-in-godot-4/): **Compo
 ---
 
 ## Character movement script
-So far, we've been telling you exactly what to do and how to do it. Now though, you're going to have to do a little more thinkng. We'll provide basic guidelines and simple examples for the next steps, but you wil have to write some code yourself. 
+So far, we've been telling you exactly what to do and how to do it. Now though, you're going to have to do a little more thinkng. We'll provide basic guidelines and simple examples for the next steps, but you will have to write some code yourself. 
 
 ### Variable and Function Setup
 1) First, attach a script to the root `Player` node.  
@@ -54,10 +54,10 @@ So far, we've been telling you exactly what to do and how to do it. Now though, 
 
 > With scripts, you can add extra behavior to nodes.
 
-2) Create the script with the `Node:Default` template as we want you to write the movement script yourself.  
+2) Create the script with the `Node:Default` template as we would like you to write the movement script yourself.  
 ![creating script](../images/section-1/create_script.png)
 
-### Now, lets look at what we have so far... 
+### Now, let's look at what we have so far... 
 ```gdscript
 extends CharacterBody2D
 
@@ -71,17 +71,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 ```
-- On the first line, you can see that it says the script `extends ChracterBody2D`. This is because it's attached to the player's root node, and is therefore modifying the behavior of the `CharacterBody2D` Node. Your player node will 'inherit' all the properties of the `CharacterBody2D`.
+- On the first line, you can see that it says `extends ChracterBody2D`. This is because it's attached to the player's root node, and is therefore modifying the behavior of the `CharacterBody2D` Node. Your player node will 'inherit' all the properties of the `CharacterBody2D`.
 - The `_ready()` function is called one time as soon as the node is loaded in.
 - The `_process(delta: float)` is called by the engine everytime it draws a frame. The `delta` variable is the time from now and the last frame in seconds. Think of it as running constantly over and over again.
 
-For this script, you can delete the `_process(delta: float)` function and replace it with `_physics_process(delta: float)`. This is a special godot function that is called whenever the physics engine is updated. It's called at a fixed frequency, 60 times a second by default. It's indepnedent of the games actual framerate, so that the physics calculations runs smooth even if the actual graphics are lagging behind. Since it's called at a fixed frequency, the `delta` (time since last call) will generally be constant. This is where the movement logic will be written.
+For this script, you can delete the `_process(delta: float)` function and replace it with `_physics_process(delta: float)`. This is a special godot function that is called whenever the physics engine is updated. It's called at a fixed frequency, 60 times a second by default. It's independent of the games actual framerate, so that the physics calculations runs smooth even if the actual graphics are lagging behind. Since it's called at a fixed frequency, the `delta` (time since last call) will generally be constant. This is where the movement logic will be written.
 
 > You can read more about physics processing [here](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html#doc-idle-and-physics-processing) in the Godot docs.
 
 ### Implementing movement 
-For now, we will only implement left and right movement. We will first have to declare some variables:
-- `SPEED: int`: This will be how many pixels a second our character will move at. This will be a constant variable. Constant variables are commonly typed out in all caps to clearly show that they are constant.
+For now, we will only implement left and right movement. First, we will have to declare some variables:
+- `SPEED: int`: This will be how many pixels a second our character will move at. This will be a constant variable. As a convention, constant variables are commonly typed out in all caps to clearly show that they are constant.
 - `x_direction: int`:  This variabe will be -1 if we are moving left, 1 if we are moving right, and 0 if we are stood still.
 
 In Godot, variables are declared like this:
@@ -111,7 +111,7 @@ The `CharacterBody2D` node also provides us with useful functionality to manage 
 - `is_on_floor() -> bool`: This function will return true if the player is on the floor. This will be useful later when we implement jumping.
 
 ### Now, it's your turn!
-We will give you the outline and you need to fill in the rest. We will give you the answer, but try filling it out first!
+We will give you the outline but you will need to fill in the rest. We'll give you the answer a bit further down, but try filling it out first!
 ```gdscript
 extends CharacterBody2D
 
@@ -157,7 +157,7 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 ```
-> If your script looks different but achieves the same thing, that's fine!
+> If your script looks different but achieves the same thing, then that's fine!
 
 ### Adding gravity
 
@@ -172,4 +172,4 @@ if not is_on_floor():
 
 ---
 
-Now, you have a complete movement script, but there is no ground for our character to stand on. In the [next section](./section-2.md) we will build an environment for our character to move around in.
+Now, you have a complete movement script. However, there is no ground for our character to stand on! In the [next section](./section-2.md) we will build an environment for our character to move around in.
