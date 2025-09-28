@@ -8,7 +8,7 @@ Congrats on finishing the actual tutorial! Now that you are familiar with the co
 - New attacks
 - More levels, level system
 
-This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, make sure to consult the [godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend. 
+This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, you can consult the [godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend. 
 
 > If you are really stuck, you can always ask an officer for advice on our Discord.
 
