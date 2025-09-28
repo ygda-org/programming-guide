@@ -32,7 +32,7 @@ In this project, as well as in TJ-RPG, we will be using **4.4-stable**, which yo
 ### 2. Download the assets
 
 This repo contains the assets you will be using in the game.  
-*Alternatively, make your own! This will be really time-consuming-- wouldn't recommend if it's your first time using Godot.*
+*Alternatively, make your own! This will be really time-consuming--wouldn't recommend if it's your first time using Godot.*
 
 - If you have Godot on your computer, navigate to the [programming guide repo](https://github.com/ygda-org/Programming-Guide) (which you probably are already on), download the zip file, and extract the contents.
 
