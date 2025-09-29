@@ -23,7 +23,7 @@ We are gonna create a zone that kills the player immedietely upon entering. Any 
 ![connnecting a signal to your script](../images/section-5/connecting_signals.png)
 
 
-Now, lets look at what changed in your newly created script.
+Now, let's look at what changed in your newly created script.
 
 ```gdscript
 extends Area2D

@@ -6,7 +6,7 @@ In this section, we will create an enemy to act as an obstacle for our player to
 
 1) Create a new scene with the root node of `CharacterBody2D` and save it as `enemy.tscn` in your scenes folder. This is a `CharacterBody2D` because it will behave similarly to the player.
 
-2) Add an `AnimatedSprite2D` as a child of the `CharacterBody2D`. Make a new animation for the enemy called "default" and add `enemy1.png` and `enemy2.png` as the frames. After you added the frames, set it to "Autoplay on Load" so that the animation instantly plays when the scene loads.
+2) Add an `AnimatedSprite2D` as a child of the `CharacterBody2D`. Make a new animation for the enemy called "default" and add `enemy1.png` and `enemy2.png` as the frames. After you've add the frames, set it to "Autoplay on Load" so that the animation instantly plays when the scene loads.
 
 ![setting autoload on animation](../images/section-6/setting_autoload.png) 
 
@@ -26,7 +26,7 @@ The enemy is almost done, but it doesn't move yet. If you were to play right now
 
 With your experience scripting the player earlier, you should be able to program this enemy alone now. Here is what your script should do:
 - Move the enemy horizontally in any direction until it encounters a wall.
-    - Use the bulit-in `CharacterBody2D` function `is_on_wall()` to check for this.
+    just Use the bulit-in `CharacterBody2D` function `is_on_wall()` to check for this.
 - When it encounters a wall, it should turn around.
 
 Remember to use a constant for its speed; it's bad practice to use so-called magic numbers in your code without any explanation. Also, remember that since it's a physics process, you should be using `physics_process` instead of the default `process`.

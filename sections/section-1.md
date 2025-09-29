@@ -131,7 +131,7 @@ func _physics_process(delta: float) -> void:
     ### Tell godot to calcluate movement (move_and_slide)
 ```
 
-Now, here is what your code should look something like:
+Now, here is roughly what your code should look like:
 ```gdscript
 extends CharacterBody2D
 

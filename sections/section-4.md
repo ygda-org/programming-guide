@@ -34,7 +34,7 @@ Our character is a still image right now, so lets add some dynamic animations to
 ![animations](../images/section-4/all_animations.png)
 
 
-Right now, the animations are juts sitting there. It's time to code these animations into the player movement script. Head back to `player.gd`.
+Right now, the animations are just sitting there. It's time to code these animations into the player movement script. Head back to `player.gd`.
 
 > This is your friendly neighborly reminder to remember to save throughout this guide! (control-s)
 

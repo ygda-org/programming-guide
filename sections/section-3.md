@@ -6,7 +6,7 @@ Right now, our player has the ability to walk left, to walk right, and to fall o
 
 Before we add jumping, lets improve how our script detects inputs. Navigate to the project settings from the project button on the top left of the godot toolbar. Go to the "Input Map" tab.    
 
-> With an input map, you can create actions that are triggered by a set of events. Events can be mouse clicks, keyboard presses, conroller pressses, etc. An action can have multiple events that trigger it. You can see the status of these actions with the built in `Input` global, for example: `Input.is_action_pressed("<your_event>")`.
+> With an input map, you can create actions that are triggered by a set of events. Events can be mouse clicks, keyboard presses, controller pressses, etc. An action can have multiple events that trigger it. You can see the status of these actions with the built in `Input` global, for example: `Input.is_action_pressed("<your_event>")`.
 
 Do you remember how in your player movement script you called `Input.is_action_pressed("ui_right")` to detect the action of the player pressing the right arrow key? We did that earlier for simplicity, but it's best practice to make your own input map with your own actions and respective inputs. You can add one action and make multiple events trigger it, like making the right arrow key and `a` both trigger the move right event. Go ahead and add 3 actions named `Left`, `Right`, and `Jump`. Type the action name then press the add button right next to it. 
 
@@ -71,4 +71,4 @@ The player looks a little small, so lets fix that by adjusting the zoom. Go to y
 
 ---
 
-Now our player can hop and parkour around the scene, but the player sprite's just a static image! In the [next section](./section-4.md) we wil add some animations.
+Now our player can hop and parkour around the scene, but the player sprite's just a static image! In the [next section](./section-4.md) we will add some animations.

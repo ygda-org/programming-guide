@@ -48,7 +48,7 @@ So, you should call `DISC.instantiate()` and then add it to the current scene.
 
 > Anything that is saved and loaded from the filesystem is a resource. You can read more about resources and loading [here](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html) in the Godot docs. **Nodes** give you functionality, and **Resources** are just data containers.
 
-Now we should be ready to start programming the player's ability to spawn discs! Try programming it yourself. Heres what you should add to your existing `player.gd`:
+Now we should be ready to start programming the player's ability to spawn discs! Try programming it yourself. Here's what you should add to your existing `player.gd`:
 - If the player presses the "Shoot" action:
     - Instantiate the disc
     - Set the disc's `.position` property to the player's position.
