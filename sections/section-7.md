@@ -24,7 +24,7 @@ Before we get to the programming, we need to get to add an input that actually a
 
 ## Adding a cooldown timer
 
-We don't want the player to spam the disk endlessly, so we are going to give them a small cooldown between throws. Head back to your player scene and add a `Timer` node. Rename this timer to `DiscCooldown`. Now, head to the inspector with the `DiscCooldown` node selected and set the "Wait Time" to something reasonable, like 1 second (you can try out different values until it feels right). This will be the cooldown after each disc throw. Also, set the "One Shot" property to be true so that the cooldown doesn't infinitely repeat.
+We don't want the player to spam the disc endlessly, so we are going to give them a small cooldown between throws. Head back to your player scene and add a `Timer` node. Rename this timer to `DiscCooldown`. Now, head to the inspector with the `DiscCooldown` node selected and set the "Wait Time" to something reasonable, like 1 second (you can try out different values until it feels right). This will be the cooldown after each disc throw. Also, set the "One Shot" property to be true so that the cooldown doesn't infinitely repeat.
 
 ![adding the timer](../images/section-7/adding-timer.png) 
 
@@ -85,8 +85,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	if Input.is_action_pressed("Shoot") and $DiskCooldown.is_stopped(): # Check if player cooldown is over
-		$DiskCooldown.start() # Restart it
+	if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped(): # Check if player cooldown is over
+		$DiscCooldown.start() # Restart it
 		var new_disc: Area2D = DISC.instantiate() # Instanciate new disc scene
 		new_disc.position = position # Set the position to the player's
 		get_tree().current_scene.add_child(new_disc) # Add it to the scene
@@ -179,8 +179,8 @@ func _on_body_entered(body: Node2D) -> void:
 There is a problem though, the problem being that the disc only goes right! Let's go back to our player script and modify how the disc is spawned in. We will modify the `x_direction` of the disc depending on what way the player's sprite is facing before adding it to the tree:
 
 ```gdscript
-	if Input.is_action_pressed("Shoot") and $DiskCooldown.is_stopped():
-		$DiskCooldown.start()
+	if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped():
+		$DiscCooldown.start()
 		var new_disc: Area2D = DISC.instantiate()
 		new_disc.position = position
 		
