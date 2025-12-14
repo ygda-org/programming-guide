@@ -4,7 +4,7 @@ Right now, our player has the ability to walk left, to walk right, and to fall o
 
 ## Using an Input Map
 
-Before we add jumping, lets improve how our script detects inputs. Navigate to the project settings from the project button on the top left of the godot toolbar. Go to the "Input Map" tab.    
+Before we add jumping, lets improve how our script detects inputs. Navigate to the project settings from the project button on the top left of the Godot toolbar. Go to the "Input Map" tab.    
 
 > With an input map, you can create actions that are triggered by a set of events. Events can be mouse clicks, keyboard presses, controller pressses, etc. An action can have multiple events that trigger it. You can see the status of these actions with the built in `Input` global, for example: `Input.is_action_pressed("<your_event>")`.
 

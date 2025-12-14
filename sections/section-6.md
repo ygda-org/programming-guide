@@ -26,7 +26,7 @@ The enemy is almost done, but it doesn't move yet. If you were to play right now
 
 With your experience scripting the player earlier, you should be able to program this enemy alone now. Here is what your script should do:
 - Move the enemy horizontally in any direction until it encounters a wall.
-    just Use the bulit-in `CharacterBody2D` function `is_on_wall()` to check for this.
+    - Use the build -in `CharacterBody2D` function `is_on_wall()` to check for this.
 - When it encounters a wall, it should turn around.
 
 Remember to use a constant for its speed; it's bad practice to use so-called magic numbers in your code without any explanation. Also, remember that since it's a physics process, you should be using `physics_process` instead of the default `process`.

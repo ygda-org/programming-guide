@@ -46,7 +46,7 @@ Excerpt from [gotut.net](https://www.gotut.net/composition-in-godot-4/): **Compo
 ---
 
 ## Character movement script
-So far, we've been telling you exactly what to do and how to do it. Now though, you're going to have to do a little more thinkng. We'll provide basic guidelines and simple examples for the next steps, but you will have to write some code yourself. 
+So far, we've been telling you exactly what to do and how to do it. Now though, you're going to have to do a little more thinking. We'll provide basic guidelines and simple examples for the next steps, but you will have to write some code yourself. 
 
 ### Variable and Function Setup
 1) First, attach a script to the root `Player` node.  
@@ -73,16 +73,16 @@ func _process(delta: float) -> void:
 ```
 - On the first line, you can see that it says `extends ChracterBody2D`. This is because it's attached to the player's root node, and is therefore modifying the behavior of the `CharacterBody2D` Node. Your player node will 'inherit' all the properties of the `CharacterBody2D`.
 - The `_ready()` function is called one time as soon as the node is loaded in.
-- The `_process(delta: float)` is called by the engine everytime it draws a frame. The `delta` variable is the time from now and the last frame in seconds. Think of it as running constantly over and over again.
+- The `_process(delta: float)` is called by the engine every time it draws a frame. The `delta` variable is the time from now and the last frame in seconds. Think of it as running constantly over and over again.
 
-For this script, you can delete the `_process(delta: float)` function and replace it with `_physics_process(delta: float)`. This is a special godot function that is called whenever the physics engine is updated. It's called at a fixed frequency, 60 times a second by default. It's independent of the games actual framerate, so that the physics calculations runs smooth even if the actual graphics are lagging behind. Since it's called at a fixed frequency, the `delta` (time since last call) will generally be constant. This is where the movement logic will be written.
+For this script, you can delete the `_process(delta: float)` function and replace it with `_physics_process(delta: float)`. This is a special Godot function that is called whenever the physics engine is updated. It's called at a fixed frequency, 60 times a second by default. It's independent of the games actual framerate, so that the physics calculations runs smooth even if the actual graphics are lagging behind. Since it's called at a fixed frequency, the `delta` (time since last call) will generally be constant. This is where the movement logic will be written.
 
 > You can read more about physics processing [here](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html#doc-idle-and-physics-processing) in the Godot docs.
 
 ### Implementing movement 
 For now, we will only implement left and right movement. First, we will have to declare some variables:
 - `SPEED: int`: This will be how many pixels a second our character will move at. This will be a constant variable. As a convention, constant variables are commonly typed out in all caps to clearly show that they are constant.
-- `x_direction: int`:  This variabe will be -1 if we are moving left, 1 if we are moving right, and 0 if we are stood still.
+- `x_direction: int`:  This variable will be -1 if we are moving left, 1 if we are moving right, and 0 if we are stood still.
 
 In Godot, variables are declared like this:
 ```gdscript
@@ -93,7 +93,7 @@ var number: int = 5
 const constant: int = 10
 ```
 
-We will be updating the `x_direction` variable when the player presses the left or right arrow keys. In godot, you check for key presses with the `Input` singleton. You can call it like this:
+We will be updating the `x_direction` variable when the player presses the left or right arrow keys. In Godot, you check for key presses with the `Input` singleton. You can call it like this:
 ```gdscript
 if Input.is_action_pressed("ui_left"): # Returns true if pressing left arrow key
     # Set movement to left
@@ -105,8 +105,8 @@ else:
 
 The `CharacterBody2D` node also provides us with useful functionality to manage movement:  
 *You can access all these variables and methods anywhere in the script as the script extends the `CharacterBody2D` node*
-- `velocity: Vector2D`: This variable holdes the current velocity of the player.
-    - This node has 2 properties, x and y, representing the horizontal and vertical velocities respectivly. You can access them with `velocity.x` or `velocity.y`.
+- `velocity: Vector2D`: This variable holds the current velocity of the player.
+    - This node has 2 properties, x and y, representing the horizontal and vertical velocities respectively. You can access them with `velocity.x` or `velocity.y`.
 - `move_and_slide()`: This function moves the `CharacterBody2D` based on `velocity`. Godot will automatically detect collisions and calculate movement for you! It should be used after you update the velocity. 
 - `is_on_floor() -> bool`: This function will return true if the player is on the floor. This will be useful later when we implement jumping.
 
@@ -168,7 +168,7 @@ if not is_on_floor():
     velocity += get_gravity() * delta
 ```
 
-> You can look [here](https://dev.to/godot/gdscript-cheatsheet-5ghe) if you want a deeper dive into the syntax of gdscript, the programming language used in Godot. Gdscript is very similar to python.
+> You can look [here](https://dev.to/godot/gdscript-cheatsheet-5ghe) if you want a deeper dive into the syntax of GDScript, the programming language used in Godot. GDScript is very similar to python.
 
 ---
 

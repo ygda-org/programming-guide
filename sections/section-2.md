@@ -13,7 +13,7 @@ In this section, we are going to build the actual stage the player will stand on
 2) Drag the player scene into this scene's Workspace.    
 ![adding player](../images/section-2/moving-player-to-new-scene.png)
 
-3) Now, we are going to start making the actual level. Right click on the world node on the inspector and add a new `TileMapLayer` node. Also, add a `Camera2D` node as a child of the player. The camera is a child of the player because we want it to move as the player moves. Child nodes always follow their parents. Your scene tree shold look like this:   
+3) Now, we are going to start making the actual level. Right click on the world node on the inspector and add a new `TileMapLayer` node. Also, add a `Camera2D` node as a child of the player. The camera is a child of the player because we want it to move as the player moves. Child nodes always follow their parents. Your scene tree should look like this:   
 ![scene tree](../images/section-2/world-scene-tree.png)
 
 ## Making the tilemap
@@ -40,7 +40,7 @@ Now we have imported our tileset and can start creating the actual stage for our
 
 ## Creating stage
 
-With tilesets, you can make environments with a consistent visual style, without having to draw assets for each seperate part of a game! You can take some artistic freedom here with your level design.
+With tilesets, you can make environments with a consistent visual style, without having to draw assets for each separate part of a game! You can take some artistic freedom here with your level design.
 
 You can select the different tiles and paint them in the workspace. There is a rectangle tool and erase tool at the top of the bottom dock as well. Go ahead and make an interesting and fun level!
 ![making a level](../images/section-2/painting-scene.png) 

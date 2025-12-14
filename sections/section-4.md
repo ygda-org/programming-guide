@@ -42,7 +42,7 @@ Right now, the animations are just sitting there. It's time to code these animat
 
 To play an animation, you can use the code `$AnimatedSprite2D.play("animation_name")`. Also, to flip the sprite horizontally, you can use the code `$AnimatedSprite2D.flip_h = true` to set that property of the `AnimatedSprite2D` to true. You can set it to false to flip it back.
 
-> '$' in godot is used to access a particular child node based on it's name. When you type `$AnimatedSprite2D`, Godot will search the `Player`'s child nodes and return your `AnimatedSprite2D` node. If it's not found, it will return null and error out if you try to dereference it (meaning call any of it's functions, access it's data, yadayada). Alternatively, you can use get_node(name: String) which can be helpful when you have a seperate scene as a reference (and thus can't use '$').
+> '$' in Godot is used to access a particular child node based on it's name. When you type `$AnimatedSprite2D`, Godot will search the `Player`'s child nodes and return your `AnimatedSprite2D` node. If it's not found, it will return null and error out if you try to dereference it (meaning call any of it's functions, access it's data, yadayada). Alternatively, you can use get_node(name: String) which can be helpful when you have a seperate scene as a reference (and thus can't use '$').
 
 You can try implementing the script right now if you are comfortable, but we will give you some hints about what your script should do and later on the actual script. We recommend trying to program it as independently as possible though! 
 

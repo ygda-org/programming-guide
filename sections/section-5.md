@@ -1,10 +1,10 @@
 # Killing the player
 
-In this section we will add ways for our player to die other than falling into an endless grey void.
+In this section we will add ways for our player to die other than falling into an endless gray void.
 
 ## Creating a death zone
 
-We are gonna create a zone that kills the player immedietely upon entering. Any future scene that kills the player when they enter an area will use this scene.
+We are gonna create a zone that kills the player immediately upon entering. Any future scene that kills the player when they enter an area will use this scene.
 
 1) Create a new scene with the root node as a `Area2D` and rename it to "DeathZone". Save it inside your scenes folder.
 
@@ -16,7 +16,7 @@ We are gonna create a zone that kills the player immedietely upon entering. Any 
 
 ![signals](../images/section-5/signals.png)
 
-> Here you can see the different signals the `Area2D` node has. Signals in godot are just another way for nodes to communicate with each other in a modular way. They are, basically, messages that nodes emit when something happens, like when something enters the `Area2D`'s collision area. Other nodes can attach to these signals and run code when they are emitted. 
+> Here you can see the different signals the `Area2D` node has. Signals in Godot are just another way for nodes to communicate with each other in a modular way. They are, basically, messages that nodes emit when something happens, like when something enters the `Area2D`'s collision area. Other nodes can attach to these signals and run code when they are emitted. 
 
 4) Double click on the signal `body_entered()` so we can check when a player enters the death zone, then connect it to your script by pressing "Connect".
 
@@ -47,7 +47,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 The `on_body_entered(body: Node2D) -> void` function will be called whenever any body enters the death zone. However, we don't know for sure if this body is a player. If later on we add more bodies to our game, how will we differentiate between the player and other bodies? We can do this with groups.
 
-> A body in godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physcal interactions, like a player entering a zone that triggers their death.
+> A body in Godot is a physical object that interacts with the physics engine, like the `CharacterBody2D` on your player. Areas are zones in your game used for non-physical interactions, like a player entering a zone that triggers their death.
 
 1) Go into the player scene and, where the inspector is, go into the "Node" tab. Then, navigate to the "Groups" area.
 
@@ -106,7 +106,7 @@ Return to your player script and create the `die()` function. This function shou
     - Use `get_tree().change_scene_to_file("path/to/scene")` with the path to your `world.tscn`. This will simply restart the world scene.
     - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays.
 
-> When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting untill that timer emits the signal `timeout`.
+> When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting until that timer emits the signal `timeout`.
 
 Try making and testing the script yourself! 
 

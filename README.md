@@ -29,7 +29,7 @@ In this project, as well as in TJ-RPG, we will be using **4.4-stable**, which yo
 
 > Alternatively, you can use the [Godot Web Editor](https://editor.godotengine.org/releases/4.3.stable/godot.editor.html). Use this as a last resort if you cannot download the engine on your device, as there are some functions that will be inaccessible. The web editor is also on version 4.3, which should work for this tutorial. We really highly recommend you use the local editor, though.*
 
-> Godot uses **Semantic Versioning**, meaning the numbers in order describe major releases, minor releases, and patches respectively. It's formatted like this: **MAJOR.MINOR.PATCH**. New minor versions might have some breaking changes, but new patches are often just bug fixes or small improvments that shouldn't break anything.
+> Godot uses **Semantic Versioning**, meaning the numbers in order describe major releases, minor releases, and patches respectively. It's formatted like this: **MAJOR.MINOR.PATCH**. New minor versions might have some breaking changes, but new patches are often just bug fixes or small improvements that shouldn't break anything.
 
 ### 2. Download the assets
 
@@ -42,7 +42,7 @@ This repo contains the assets you will be using in the game.
 
 - If you are using the web editor, download [this](https://drive.google.com/file/d/1TVeHjCGbOdk_NbcGMKpGJMo8EU4YazeH/view?usp=sharing).
 
-> You can also follow the instructions offline if you'd like by reading the tutorial from the repo you just downloaded if you have godot on your computer
+> You can also follow the instructions offline if you'd like by reading the tutorial from the repo you just downloaded if you have Godot on your computer
 
 ### 3. Setup your Godot project
 
