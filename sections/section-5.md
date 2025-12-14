@@ -100,6 +100,8 @@ Return to your player script and create the `die()` function. This function shou
     - You can do this by referring to the `CollisionShape2D` node on the player with `$CollisionShape2D` and setting the `disabled` property to true. You should do this with the function `$CollisionShape2D.set_deferred("disabled", true)`. You have to do it this way as messing with node properties in the middle of physics calculations can cause problems, and by calling it deferred, you are telling the engine to hold off on doing it till the end of the current frame (this will be very useful to remember for future games).
 - Flip the character's sprite vertically
     - Remember from the earlier section that you can set the `flip_v` property of the `AnimationPlayer2D` to true.
+- Make the character play a death animation
+    - Maybe you can make a new death animation? Or have it just be the jump animation?
 - Delay for a bit, then restart the scene
     - Use `get_tree().change_scene_to_file("path/to/scene")` with the path to your `world.tscn`. This will simply restart the world scene.
     - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays.
@@ -165,6 +167,7 @@ func die() -> void:
 	is_dead = true
 	set_deferred("velocity", Vector2.ZERO)
 	$AnimatedSprite2D.flip_v = true
+	$AnimatedSprite2D.play("jump") # I reused the jump animation for the character's death
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	await get_tree().create_timer(DELAY_TILL_RESTART).timeout
@@ -180,6 +183,7 @@ func die() -> void:
 	is_dead = true
 	set_deferred("velocity", Vector2.ZERO)
 	$AnimatedSprite2D.flip_v = true
+	$AnimatedSprite2D.play("jump")
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 	Engine.time_scale = 0.5
