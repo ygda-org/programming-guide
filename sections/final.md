@@ -1,10 +1,11 @@
 # Finale 
-Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. These describe more advanced topics like scene management, audio, shaders, particles, and resources. You should be able to do most of these in any order, but some depend on others.
+Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. These describe more advanced topics like scene management, audio, shaders, particles, and resources. You should be able to do most of these in any order, but some depend on others. You might need to adapt some of the changes described in the extensions as appropriate for your own project, which you are now equipped to do so. 
 
+> Learning these concepts as you go on your own is a great way of learning too!
 
 Here are some that we either made or are working on:
-- Levels and a Main Menu: [Scene Management](./extensions/scene-management/intro.md) 
-- Power-ups: [Resources](./extensions/resources//intro.md) 
+- Levels and a Main Menu: [Scene Management & the SceneTree](./extensions/scene-management/intro.md) 
+- Power-ups: [Resources](./extensions/resources/intro.md) 
 
 
 Here are some subjects we eventually plan to add:
@@ -26,9 +27,8 @@ We also encourage you to try to implement features yourself! You are ready to ve
 - New attacks
 - More levels, level system
 
-This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, you can consult the [Godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend. 
+This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, you can consult the [Godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend.
 
-> If you are really stuck, you can always ask an officer for advice on our Discord.
+> If you are really stuck, you can always ask an officer for advice on our Discord. Reddit is another place you can get good design advice.
 
 When you are done with this, you may follow our [GitHub guide](./git-setup.md) to easily share your work with an officer! 
-
