@@ -1,12 +1,15 @@
 # Scene Management & SceneTree Intro
 In the intro to this extension, we will explain shortly how the Godot `SceneTree` works and how to write global logic, i.e logic that can be accessed anywhere (like to switch a level).
 
+---
+
 ## The Scene Tree
 Fundamentally, how Godot works is by holding a instantiated a `SceneTree` object that holds all the nodes and scenes in your game. This `SceneTree` holds the logic for running the main loop of your game.
 
-![remote scene tree example](./images/scene_tree.png) 
 
 We can examine our current scene tree by examining the `SceneTree` as our game runs. Run your game, navigate to the scene tree, and switch to the `Remote` tab. You can then expand all the drop downs and examine the state of every single node that is currently on the scene tree. 
+
+![remote scene tree example](./images/scene_tree.png) 
 
 > This is often useful for debugging! You can also click on each node in a scene and examine as well as change any variables, even if they aren't prepended with the `@export` annotation. For example, if you click on the player, you can set any of the internal variables we made earlier like `x_direction` or `is_dead`. You can't change variables with the `const` qualifier, however.
 
@@ -47,7 +50,7 @@ Autoloads function basically the same. They allow us to store persistent informa
 
 > The Godot docs describe Autoloads in greater detail [here](https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html).
 
-You can add new Autoloads in the toolbar under `Project > Project Settings`. These Autoloads are still in the `SceneTree`.
+You can add new Autoloads in the toolbar under `Project > Project Settings...`. These Autoloads are still in the `SceneTree`.
 
 ---
 
