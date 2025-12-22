@@ -69,7 +69,8 @@ Now continue with these steps:
 
     *These can be changed based on preference, but should be alright for our purposes.*
 
-    - `Display -> Window -> Mode`: **canvas_items**
+    - `Display -> Window -> Stretch -> Mode`: **canvas_items**
+
 > You might need to enable Advanced Settings to see some of these options.
 ---
 
