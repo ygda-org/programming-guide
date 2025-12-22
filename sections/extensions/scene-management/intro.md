@@ -7,7 +7,7 @@ In the intro to this extension, we will explain shortly how the Godot `SceneTree
 Fundamentally, how Godot works is by holding a instantiated a `SceneTree` object that holds all the nodes and scenes in your game. This `SceneTree` holds the logic for running the main loop of your game.
 
 
-We can examine our current scene tree by examining the `SceneTree` as our game runs. Run your game, navigate to the scene tree, and switch to the `Remote` tab. You can then expand all the drop downs and examine the state of every single node that is currently on the scene tree. 
+We can examine our current scene tree by examining the `SceneTree` as our game runs. Run your game, navigate to the Scene Dock, and switch to the `Remote` tab. You can then expand all the drop downs and examine the state of every single node that is currently on the scene tree. 
 
 ![remote scene tree example](./images/scene_tree.png) 
 
@@ -37,7 +37,7 @@ func die() -> void:
 But, where would we put the logic to switch to different scenes? Since the `World` scene is going to be switched out, we can't house it in there. We could have the current scene be a child of a scene manager node and switch the scene manager's child to the next scene, but Godot gives us another tool to tackle this problem.
 
 ## Autoloads (also called Singletons or Globals)
-Autoloads in Godot allow us to achieve the function of static classes.
+**Autoloads** in Godot allow us to achieve the function of static classes.
 
 If you aren't familiar with static classes, they:
 - Are instantiated at the start automatically and exists till the end of the program
@@ -47,6 +47,21 @@ If you aren't familiar with static classes, they:
 - Can hold static functions
 
 Autoloads function basically the same. They allow us to store persistent information throughout scene switches and logic that is able to be called from anywhere. Thus, it's the perfect tool to use for our level switcher.
+
+An example of an Autoload you should remember is the `Input` class that allows us to capture input. Recall how it's accessible from anywhere. This is the snippet in our player movement script:
+```gdscript
+func _physics_process(delta: float) -> void:
+    ...
+	
+	if Input.is_action_pressed("Left"):
+		x_direction = -1
+		$AnimatedSprite2D.flip_h = true
+	elif Input.is_action_pressed("Right"):
+		x_direction = 1
+		$AnimatedSprite2D.flip_h = false
+	else:
+		x_direction = 0
+```
 
 > The Godot docs describe Autoloads in greater detail [here](https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html).
 
