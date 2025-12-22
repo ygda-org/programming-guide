@@ -25,7 +25,16 @@ Now that you have your own input map, you no longer have to use the default `ui_
 
 ## Finally, adding jumping
 
-Add an extra if clause to your script that triggers when the player triggers the `Jump` action. Instead of using `Input.is_action_pressed("Jump")`, use `Input.is_action_just_pressed("Jump")` so that player can't spam jump by holding down the jump key. Also, the player should only be able to jump when they are on the floor, which the `CharacterBody2D` function, `is_on_floor()` will inform you of. Your script should add a certain constant amount of jump power to `velocity.y`. This constant should be declared at the start of your script. It should also be a negative number. Go ahead and make the additions to your script. We will give you the final script, but try coding it yourself!
+Lets add an extra if clause to our script. Try coding it yourself! Here are the changes we will make:
+- Add an if clause after the gravity clause that checks if the player has pressed the `Jump` action.
+    - You can do this with `Input.is_action_pressed(action)` or `Input.is_action_just_pressed(action)`. They will have different effects; so do whichever you prefer!
+- Also check in this clause if the player is on the floor
+    - You can do this with the handy `CharacterBody2D` function: `is_on_floor()`. Very self explanatory.
+- In this clause, you should add a constant amount of jump power to `velocity.y`
+    - You should declare this constant at the start of your script, like we did with speed.
+    - This constant should be negative. Read the disclaimer below for why.
+
+> In Godot, negative Y is the up direction, while positive Y is the down direction. This is because computers place the origin at the top left corner of your monitor. We invert the Y-axis so we don't have to work with negative numbers all the time. Blame old people if you don't like it.
 
 
 Your script should look something like this now:
@@ -45,17 +54,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
+
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y += JUMP_POWER # Add the jump power
-	
+
 	if Input.is_action_pressed("Left"):
 		x_direction = -1
 	elif Input.is_action_pressed("Right"):
 		x_direction = 1
 	else:
 		x_direction = 0
-	
+
 	velocity.x = x_direction * SPEED
 
 	move_and_slide()
