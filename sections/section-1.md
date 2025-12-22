@@ -102,6 +102,7 @@ elif Input.is_action_pressed("ui_right"): # You can probably guess what this doe
 else:
     # Stop movement
 ```
+> A singleton (`Input` in the above example) is just a global class that you can call from anywhere and there exists only one instance of. Think of it as a static or global class.
 
 The `CharacterBody2D` node also provides us with useful functionality to manage movement:  
 *You can access all these variables and methods anywhere in the script as the script extends the `CharacterBody2D` node*
