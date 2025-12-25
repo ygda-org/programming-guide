@@ -57,6 +57,12 @@ So far, we've been telling you exactly what to do and how to do it. Now though, 
 2) Create the script with the `Node:Default` template as we would like you to write the movement script yourself.  
 ![creating script](../images/section-1/create_script.png)
 
+3) Save this script as `player.gd` with `Control + S` and put it in its owns `scripts` folder.
+![making scripts folder](../images/section-1/making_scripts_folder.png) 
+
+> Since this game is very simple, our file organiziation will as well. We will have a `scenes` folder for scenes and a `scripts` folder for scripts. For more complicated games, you will need a more granular organization scheme. You should generally put scenes into seperate folders depending on their functinality: like UI, player, or globals. This will differ from project to project, though.
+
+
 ### Now, let's look at what we have so far... 
 ```gdscript
 extends CharacterBody2D

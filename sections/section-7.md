@@ -132,7 +132,7 @@ func die() -> void:
 
 Let's start actually programming the disc movement in the next part.
 
-## Adding enemy grouop
+## Adding enemy group
 
 Before we actually get to programming however, we will need to have a way to check whether or not something the disc hits is actually an enemy. Go back to your enemy scene and make a new global group called "Enemy". Add the enemy scene to this group.
 

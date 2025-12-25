@@ -5,6 +5,7 @@ In this section, we will create an enemy to act as an obstacle for our player to
 ## Creating the enemy scene
 
 1) Create a new scene with the root node of `CharacterBody2D` and save it as `enemy.tscn` in your scenes folder. This is a `CharacterBody2D` because it will behave similarly to the player.
+![creating root CharacterBody2D](../images/section-6/creating_root_node.png)
 
 2) Add an `AnimatedSprite2D` as a child of the `CharacterBody2D`. Make a new animation for the enemy called "default" and add `enemy1.png` and `enemy2.png` as the frames. After you've add the frames, set it to "Autoplay on Load" so that the animation instantly plays when the scene loads.
 
@@ -24,10 +25,19 @@ The enemy is almost done, but it doesn't move yet. If you were to play right now
 
 ## Scripting the enemy
 
+We are going to make an enemy that moves until it hits a wall, then turns around and repeats. If the player touches them, they will die. First, lets implement the movement.
+
+
+### Enemy Movement
+
 With your experience scripting the player earlier, you should be able to program this enemy alone now. Here is what your script should do:
-- Move the enemy horizontally in any direction until it encounters a wall.
-    - Use the build -in `CharacterBody2D` function `is_on_wall()` to check for this.
-- When it encounters a wall, it should turn around.
+- Declare a constant speed for the player
+- Move the enemy horizontally in any direction until it encounters a wall
+    - Use the built-in `CharacterBody2D` function `is_on_wall()` to check for this.
+    - Use `move_and_slide()` to move based on velocity.
+- When it encounters a wall, it should turn around (it's velocity should be negated)
+
+> This works similarly to your player script! Since it's a `CharacterBody2D` like our player, you can reuse all the functionality from our old `player.gd` script.
 
 Remember to use a constant for its speed; it's bad practice to use so-called magic numbers in your code without any explanation. Also, remember that since it's a physics process, you should be using `physics_process` instead of the default `process`.
 
@@ -48,6 +58,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 ```
+
+### Killing the Player
 
 Now if you play, the enemy will move until it hits a wall, then turn around. But uh oh, it bounces off of the player too! Let's fix that by adding logic to kill the player on the enemy. Here is what we need to add to the script:
 - Before the movement logic, we need to check if anything has collided with the enemy in the loop.
