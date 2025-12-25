@@ -59,7 +59,7 @@ Now, we need a way to detect when the player finishes the level. We can do this 
 
 ![creating new area2d](./images/section-2/new_area_2d.png) 
 
-2) Attach a new script to this `Area2D`. Move this new scene and script to their appropriate folders.
+2) Attach a new script to this `Area2D`. Save this new scene and script to their appropriate folders.
 
 ![attaching script and putting it in it's folder](./images/section-2/attaching_script_to_area2d.png) 
 
@@ -82,7 +82,14 @@ func _on_body_entered(body: Node2D) -> void:
 
 ## Putting it all together
 
-> TODO
+Lets now put our `LevelEnd` at the end of our first level. Put it where ever is appropriate in your custom made map.
 
+![adding levelend to first level](./images/section-2/adding_level_end.png) 
+
+Try testing your game out now! When you walk up to where ever you put the `LevelEnd`, it should send you to the next level. Go ahead and make as many levels as you would like. We made one extra for a total of 3.
+
+> If it doesn't work, that just means you have a chance to practice your debugging :)
 
 ---
+
+We have a functioning `LevelManager` now! In the [next section](./section-3.md), we will add a main menu to put it all together.

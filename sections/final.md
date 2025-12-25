@@ -3,12 +3,12 @@ Congrats! You are done with the base of the tutorial. We also offer you some ext
 
 > Learning these concepts as you go on your own is a great way of learning too!
 
-Here are some that we either made or are working on:
+Here are some that we have finished or made decent progress on:
 - Levels and a Main Menu: [Scene Management & the SceneTree](./extensions/scene-management/intro.md) 
+
+
+Here are some subjects we eventually plan to add or are working on:
 - Power-ups: [Resources](./extensions/resources/intro.md) 
-
-
-Here are some subjects we eventually plan to add:
 - Godot's UI framework
 - Shaders 
 - CPU/GPU particles
