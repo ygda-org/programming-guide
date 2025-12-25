@@ -1,6 +1,6 @@
 # Finale
 
-You know know how the `SceneTree` and scene management works in Godot. Introducing Godot's whole UI framework in this format wouldn't be practical, so we will let you explore it yourself through making a more stylized Main Menu
+You know know how the `SceneTree` and scene management works in Godot. Introducing Godot's whole UI framework in this format wouldn't be practical, so we will let you explore it yourself through making a more stylized Main Menu.
 
 ---
 
