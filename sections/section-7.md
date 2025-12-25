@@ -75,59 +75,59 @@ var x_direction: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
-	if is_dead:
-		move_and_slide()
-		return
+    if not is_on_floor():
+        velocity += get_gravity() * delta
 
-	if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped(): # Check if player cooldown is over
-		$DiscCooldown.start() # Restart it
-		var new_disc: Area2D = DISC.instantiate() # Instanciate new disc scene
-		new_disc.position = position # Set the position to the player's
-		get_tree().current_scene.add_child(new_disc) # Add it to the scene
-	
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y += JUMP_POWER
-	
-	if Input.is_action_pressed("Left"):
-		x_direction = -1
-		$AnimatedSprite2D.flip_h = true
-	elif Input.is_action_pressed("Right"):
-		x_direction = 1
-		$AnimatedSprite2D.flip_h = false
-	else:
-		x_direction = 0
-	
-	velocity.x = x_direction * SPEED
-	
-	if is_on_floor():
-		if x_direction != 0:
-			$AnimatedSprite2D.play("run")
-		else:
-			$AnimatedSprite2D.play("idle")
-	else:
-		if velocity.y > 0:
-			$AnimatedSprite2D.play("fall")
-		if velocity.y < 0:
-			$AnimatedSprite2D.play("jump")
+    if is_dead:
+        move_and_slide()
+        return
 
-	move_and_slide()
+    if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped(): # Check if player cooldown is over
+        $DiscCooldown.start() # Restart it
+        var new_disc: Area2D = DISC.instantiate() # Instanciate new disc scene
+        new_disc.position = position # Set the position to the player's
+        get_tree().current_scene.add_child(new_disc) # Add it to the scene
+
+    if Input.is_action_just_pressed("Jump") and is_on_floor():
+        velocity.y += JUMP_POWER
+
+    if Input.is_action_pressed("Left"):
+        x_direction = -1
+        $AnimatedSprite2D.flip_h = true
+    elif Input.is_action_pressed("Right"):
+        x_direction = 1
+        $AnimatedSprite2D.flip_h = false
+    else:
+        x_direction = 0
+
+    velocity.x = x_direction * SPEED
+
+    if is_on_floor():
+        if x_direction != 0:
+            $AnimatedSprite2D.play("run")
+        else:
+            $AnimatedSprite2D.play("idle")
+    else:
+        if velocity.y > 0:
+            $AnimatedSprite2D.play("fall")
+        if velocity.y < 0:
+            $AnimatedSprite2D.play("jump")
+
+    move_and_slide()
 
 func die() -> void:
-	is_dead = true
-	set_deferred("velocity", Vector2.ZERO)
-	$AnimatedSprite2D.flip_v = true
-	$CollisionShape2D.set_deferred("disabled", true)
-	
-	Engine.time_scale = 0.5
-	await get_tree().create_timer(DELAY_TILL_RESTART).timeout
-	Engine.time_scale = 1
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+    is_dead = true
+    set_deferred("velocity", Vector2.ZERO)
+    $AnimatedSprite2D.flip_v = true
+    $CollisionShape2D.set_deferred("disabled", true)
+    
+    Engine.time_scale = 0.5
+    await get_tree().create_timer(DELAY_TILL_RESTART).timeout
+    Engine.time_scale = 1
+    get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
 Let's start actually programming the disc movement in the next part.
@@ -166,30 +166,30 @@ const SPEED: int = 225
 var x_direction: int = 1
 
 func _physics_process(delta: float) -> void:
-	position.x += SPEED * x_direction * delta
+    position.x += SPEED * x_direction * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):
-		body.queue_free() # Destroy the enemy
-	
-	if not body.is_in_group("Player"):
-		queue_free() # Destroy the disc if the body isn't the player
+    if body.is_in_group("Enemy"):
+        body.queue_free() # Destroy the enemy
+
+    if not body.is_in_group("Player"):
+        queue_free() # Destroy the disc if the body isn't the player
 ```
 
 There is a problem though, the problem being that the disc only goes right! Let's go back to our player script and modify how the disc is spawned in. We will modify the `x_direction` of the disc depending on what way the player's sprite is facing before adding it to the tree:
 
 ```gdscript
-	if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped():
-		$DiscCooldown.start()
-		var new_disc: Area2D = DISC.instantiate()
-		new_disc.position = position
-		
-		if $AnimatedSprite2D.flip_h == true: # Check what way the player is facing
-			new_disc.x_direction = -1
-		else:
-			new_disc.x_direction = 1
-		
-		get_tree().current_scene.add_child(new_disc) 
+    if Input.is_action_pressed("Shoot") and $DiscCooldown.is_stopped():
+        $DiscCooldown.start()
+        var new_disc: Area2D = DISC.instantiate()
+        new_disc.position = position
+        
+        if $AnimatedSprite2D.flip_h == true: # Check what way the player is facing
+            new_disc.x_direction = -1
+        else:
+            new_disc.x_direction = 1
+        
+        get_tree().current_scene.add_child(new_disc) 
 ```
 
 Now you have a fully functional throwable weapon for the player to use! There is still one small problem, however.
@@ -209,7 +209,7 @@ Right now, your disc moves until it hits something. But what if it goes off the 
 3) When this signal is emitted, simply call `queue_free` to destroy the disc when its out of the scene.
 ```gdscript
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
+    queue_free()
 ```
 
 ---

@@ -51,11 +51,11 @@ const SPEED: int = 50
 var x_direction = 1
 
 func _physics_process(delta: float) -> void:
-	if is_on_wall():
-		x_direction *= -1
-	
-	velocity.x = SPEED * x_direction
-	move_and_slide()
+    if is_on_wall():
+        x_direction *= -1
+
+    velocity.x = SPEED * x_direction
+    move_and_slide()
 
 ```
 

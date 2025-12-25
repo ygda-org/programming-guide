@@ -66,7 +66,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-        body.die()
+		body.die()
 ```
 
 ## Adding a death boundary to our world scene
@@ -130,14 +130,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
+
 	if is_dead: # Lets return after the gravity clause so we can watch our player fall off the edge
 		move_and_slide() # We must still call move_and_slide() so our player actually falls
 		return
 		
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y += JUMP_POWER
-	
+
 	if Input.is_action_pressed("Left"):
 		x_direction = -1
 		$AnimatedSprite2D.flip_h = true
@@ -146,9 +146,9 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 	else:
 		x_direction = 0
-	
+
 	velocity.x = x_direction * SPEED
-	
+
 	# Play animations
 	if is_on_floor():
 		if x_direction != 0:
@@ -169,9 +169,9 @@ func die() -> void:
 	$AnimatedSprite2D.flip_v = true
 	$AnimatedSprite2D.play("jump") # I reused the jump animation for the character's death
 	$CollisionShape2D.set_deferred("disabled", true)
-	
+
 	await get_tree().create_timer(DELAY_TILL_RESTART).timeout
-	
+
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
@@ -185,7 +185,7 @@ func die() -> void:
 	$AnimatedSprite2D.flip_v = true
 	$AnimatedSprite2D.play("jump")
 	$CollisionShape2D.set_deferred("disabled", true)
-	
+
 	Engine.time_scale = 0.5
 	await get_tree().create_timer(DELAY_TILL_RESTART).timeout
 	Engine.time_scale = 1

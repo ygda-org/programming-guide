@@ -49,25 +49,25 @@ var x_direction: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+    if not is_on_floor():
+        velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y += JUMP_POWER # Add the jump power
+    if Input.is_action_just_pressed("Jump") and is_on_floor():
+        velocity.y += JUMP_POWER # Add the jump power
 
-	if Input.is_action_pressed("Left"):
-		x_direction = -1
-	elif Input.is_action_pressed("Right"):
-		x_direction = 1
-	else:
-		x_direction = 0
+    if Input.is_action_pressed("Left"):
+        x_direction = -1
+    elif Input.is_action_pressed("Right"):
+        x_direction = 1
+    else:
+        x_direction = 0
 
-	velocity.x = x_direction * SPEED
+    velocity.x = x_direction * SPEED
 
-	move_and_slide()
+    move_and_slide()
 ```
 
 

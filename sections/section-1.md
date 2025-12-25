@@ -77,7 +77,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+    pass
 ```
 - On the first line, you can see that it says `extends ChracterBody2D`. This is because it's attached to the player's root node, and is therefore modifying the behavior of the `CharacterBody2D` Node. Your player node will 'inherit' all the properties of the `CharacterBody2D`.
 - The `_ready()` function is called one time as soon as the node is loaded in.
@@ -129,7 +129,7 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+    pass
 
 
 func _physics_process(delta: float) -> void:
@@ -150,7 +150,7 @@ var x_direction: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
 	
