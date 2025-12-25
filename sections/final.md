@@ -1,5 +1,10 @@
-# Finale 
-Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. These describe more advanced topics like scene management, audio, shaders, particles, and resources. You should be able to do most of these in any order, but some depend on others. You might need to adapt some of the changes described in the extensions as appropriate for your own project, which you are now equipped to do so. 
+## Finale 
+Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. 
+
+---
+
+## Extensions
+These describe more advanced topics like scene management, audio, shaders, particles, and resources. You should be able to do most of these in any order, but some depend on others. You might need to adapt some of the changes described in the extensions as appropriate for your own project, which you are now equipped to do so. 
 
 > Learning these concepts as you go on your own is a great way of learning too!
 
@@ -15,7 +20,7 @@ Here are some subjects we eventually plan to add or are working on:
 
 > If there's any topic you think we should include here, make a issue or pull request! You can also just ask an officer on discord.
 
-# Adding your own mechanic!
+## Adding your own mechanic!
 
 We also encourage you to try to implement features yourself! You are ready to venture out into the REAL world (the internet and docs) and do cool stuff on your own. Here are some possible ideas:
 - Health Bar
@@ -29,4 +34,6 @@ This is your turn to get creative. If you are ever confused about or aren't sure
 
 > If you are really stuck, you can always ask an officer for advice on our Discord. Reddit is another place you can get good design advice.
 
-When you are done with this, you may follow our [GitHub guide](./git-setup.md) to easily share your work with an officer! 
+---
+
+Get out there and make some games!
