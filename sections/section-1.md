@@ -34,6 +34,8 @@ Nodes are the building blocks to your scenes, and thus, your game. They can fulf
 Now, save these scenes as `player.tscn` by pressing `Control + S` or using the `Scene` tab from the top-leftmost bar. You should also create a scenes folder for better organization.  
 ![organized filesystem](../images/section-1/organized_filesystem.png)
 
+> For node names, we generally utilize PascalCase, where each first letter of each word is capitlized. In this tutorial, when we save scenes to the filesystem, we will use snake_case. This is when all letters are lowercase and spaces are replaced with underscores. Strive to keep a consistent naming scheme throughout your projects!
+
 You have made a basic player scene! See how you can add different nodes to a parent to achieve different purposes like hitboxes or sprites? This is called 'Composition' and is used commonly used in godot to build modular and reusable game objects. 
 
 Excerpt from [gotut.net](https://www.gotut.net/composition-in-godot-4/): **Composition is a design principle that involves creating complex objects by combining simpler, reusable components. Using components has the following advantages:**

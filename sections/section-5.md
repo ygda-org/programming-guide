@@ -8,8 +8,6 @@ We are gonna create a zone that kills the player immediately upon entering. Any 
 
 1) Create a new scene with the root node as a `Area2D` and rename it to "DeathZone". Save it inside your scenes folder as `death_zone.tscn`
 
-> You should always strive to maintain a consistent naming convention in your projects. In this guide, we use pascal case for the node names and all lower case with underscores as spaces for the path names. Pascal case is just when every first letter is capitlized and there are no spaces. Ex: `LevelManager`
-
 2) Attach a new script to the node. Make sure to put this script in your `scripts` folder.
 
 ![attached script](../images/section-5/deathzone.png) 
