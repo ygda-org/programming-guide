@@ -6,7 +6,7 @@ You know know how the `SceneTree` and scene management works in Godot. Introduci
 
 ## Godot's UI Framework
 
-If your coming from something like CSS in web development, Godot's way of doing things might seem a little unintuitive. It also is built with nodes and has hierarchical elements. Godot provides you with many nodes which implement UI functionality like:
+If your coming from something like CSS in web development, Godot's way of doing things might seem a little unintuitive. It also is built with nodes and has hierarchical elements, just like regular old scenes are. Godot provides you with many nodes which implement UI functionality like:
 - Buttons
 - Labels (text)
 - TextEdits & LineEdits (text boxes)
