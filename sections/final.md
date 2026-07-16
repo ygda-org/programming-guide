@@ -32,7 +32,7 @@ We also encourage you to try to implement features yourself! You are ready to ve
 
 This is your turn to get creative. If you are ever confused about or aren't sure about how to achieve something, you can consult the [Godot docs](https://docs.godotengine.org/en/4.4/). Google is your best friend.
 
-> If you are really stuck, you can always ask an officer for advice on our Discord. Reddit is another place you can get good design advice.
+> If you are really stuck, you can always ask an officer for advice on our Discord. Additionally, the godot documentation (which can be found online, or built in to your editor) extensively covers almost anything you could need. Reddit is another place you can get good design advice.
 
 ---
 
