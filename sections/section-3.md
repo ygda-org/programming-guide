@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 
     move_and_slide()
 ```
-This isn't perfect for left and right movement, so if you want to make it better, you can optionally research and use Input.get_axis(). Look it up!
+This isn't perfect for left and right movement, so if you want to make it better, you can optionally research and use `Input.get_axis()`. Look it up!
 
 ## Adjusting camera
 
