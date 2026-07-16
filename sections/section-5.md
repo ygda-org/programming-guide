@@ -104,7 +104,7 @@ Return to your player script and create the `die()` function. This function shou
     - Maybe you can make a new death animation? Or have it just be the jump animation?
 - Delay for a bit, then restart the scene
     - Use `get_tree().change_scene_to_file("path/to/scene")` with the path to your `world.tscn`. This will simply restart the world scene.
-    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays.
+    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays. You can also add a `Timer` node to the player scene and connect its `timeout` signal to the script.
 
 > When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting until that timer emits the signal `timeout`.
 
