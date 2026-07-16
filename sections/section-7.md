@@ -4,7 +4,7 @@ In this section, we are going to give our players a throwable disc that they can
 
 ## Making the Disc Scene
 
-1) Create a new scene with the root node as an `Area2D`. Rename the root node to "Disc" and save the scene in your scenes folder as `disc.tscn`. 
+1) Create a new scene with the root node as an `Area2D`. Rename the root node to "Disc" and save the scene in your player folder as `disc.tscn`. 
 
 2) Add an `AnimatedSprite2D` and make an animation called "default" with the frames as "disc.png" and "disc2.png". Set this animation to "Autoplay on Load".
 
