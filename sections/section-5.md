@@ -8,7 +8,7 @@ We are gonna create a zone that kills the player immediately upon entering. Any 
 
 1) Create a new scene with the root node as a `Area2D` and rename it to "DeathZone". Save it inside your scenes folder as `death_zone.tscn`
 
-2) Attach a new script to the node. Make sure to put this script in your `scripts` folder.
+2) Attach a new script to the node.
 
 ![attached script](../images/section-5/deathzone.png) 
 
