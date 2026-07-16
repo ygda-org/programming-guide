@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 
     move_and_slide()
 ```
-> If it doesn't look exactly like this but achieves the same thing, that's fine!
+> If it doesn't look exactly like this but achieves the same thing, that's fine! In game dev, there's a million different ways to do each thing.
 
 ---
 
