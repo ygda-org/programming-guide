@@ -6,8 +6,7 @@ In this section, we are going to build the actual stage the player will stand on
 
 ## Setting up the scene tree
 
-1) Right click on your `scenes` folder, create a new scene, then save it under `world.tscn`.   
-![making new scene](../images/section-2/making-new-scene.png)   
+1) Create a new scene and name it as `world.tscn`.   
 ![naming new scene](../images/section-2/naming-new-scene.png)   
 
 2) Drag the player scene into this scene's Workspace.    
