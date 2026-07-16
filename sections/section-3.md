@@ -29,7 +29,7 @@ Lets add an extra if clause to our script. Try coding it yourself! Here are the 
 - Add an if clause after the gravity clause that checks if the player has pressed the `Jump` action.
     - You can do this with `Input.is_action_pressed(action)` or `Input.is_action_just_pressed(action)`. They will have different effects; so do whichever you prefer!
 - Also check in this clause if the player is on the floor
-    - You can do this with the handy `CharacterBody2D` function: `is_on_floor()`. Very self explanatory.
+    - You can do this with the handy `CharacterBody2D` function, `is_on_floor()`. Very self explanatory.
 - In this clause, you should add a constant amount of jump power to `velocity.y`
     - You should declare this constant at the start of your script, like we did with speed.
     - This constant should be negative. Read the disclaimer below for why.
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 
     move_and_slide()
 ```
-
+This isn't perfect for left and right movement, so if you want to make it better, you can optionally research and use Input.get_axis(). Look it up!
 
 ## Adjusting camera
 
