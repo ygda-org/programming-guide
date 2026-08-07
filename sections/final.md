@@ -1,5 +1,5 @@
 ## Finale 
-Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. 
+Congrats! You are done with the base of the tutorial. We also offer you some extensions you can do to gain more extensive knowledge of the engine. Really though, the absolute best way to learn is just to go out there are make stuff! You should have the hang of the editor by now, so we suggest exploring and trying to make something without any step-by-step tutorials.
 
 ---
 
