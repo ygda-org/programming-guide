@@ -69,6 +69,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body.die()
 ```
 
+> Note: A better solution, if you're interested in trying stuff, is to use exclusive collision layers. You can try setting the player to be on physics layer 2 and have the death zone only scan physics layer 2. This way, the death zone won't detect anything other than the player. You could also try an if statement to check if the body has a die() function. 
+
 ## Adding a death boundary to our world scene
 
 1) Go to the world scene and add your `DeathZone` node you made earlier to it. Add a `CollisionShape2D` node as a child.
@@ -104,7 +106,7 @@ Return to your player script and create the `die()` function. This function shou
     - Maybe you can make a new death animation? Or have it just be the jump animation?
 - Delay for a bit, then restart the scene
     - Use `get_tree().change_scene_to_file("path/to/scene")` with the path to your `world.tscn`. This will simply restart the world scene.
-    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays. You can also add a `Timer` node to the player scene and connect its `timeout` signal to the script.
+    - Use `await get_tree().create_timer(seconds: float).timeout` to delay before changing the scene. You can play around with the length of time it delays. You can also add a `Timer` node to the player scene and connect its `timeout` signal to the script. Usually, for repeated cases, the second way is preferred.
 
 > When you call `await get_tree().create_timer(seconds).timeout`, it's creating a timer on the scene tree, then waiting until that timer emits the signal `timeout`.
 
@@ -177,7 +179,7 @@ func die() -> void:
 
 Now, when your player falls off the edge, they should turn upside down and fall off the screen. The game should then eventually restart. But it's awkward with how fast the player falls. Lets slow down the game a little when the player dies. We can set `Engine.time_scale` to slow down or speed the game. Any value from 0-1 will slow down the game. You can edit your `die()` function like this:
 ```gdscript
-const DELAY_TILL_RESTART: float = 2 # You will have to double this from what you had earlier
+const DELAY_TILL_RESTART: float = 2.0 # You will have to double this from what you had earlier
 
 func die() -> void:
 	is_dead = true
@@ -192,7 +194,7 @@ func die() -> void:
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 ```
 
-> If you slow down the game, all timers will slow down too! You will have to double your time if you are slowing the game by half.
+> If you slow down the game, all timers will slow down too! You will have to double your time if you are slowing the game by half. Also, watch out when doing this, as slowing down the engine itself can have other consequences!
 
 ---
 
