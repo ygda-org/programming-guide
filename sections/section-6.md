@@ -31,11 +31,11 @@ We are going to make an enemy that moves until it hits a wall, then turns around
 ### Enemy Movement
 
 With your experience scripting the player earlier, you should be able to program this enemy alone now. Here is what your script should do:
-- Declare a constant speed for the player
+- Declare a constant speed
 - Move the enemy horizontally in any direction until it encounters a wall
     - Use the built-in `CharacterBody2D` function `is_on_wall()` to check for this.
     - Use `move_and_slide()` to move based on velocity.
-- When it encounters a wall, it should turn around (it's velocity should be negated)
+- When it encounters a wall, it should turn around (it's velocity should be negated) and flip its sprite (something like `$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h`)
 
 > This works similarly to your player script! Since it's a `CharacterBody2D` like our player, you can reuse all the functionality from our old `player.gd` script.
 
@@ -53,6 +53,7 @@ var x_direction = 1
 func _physics_process(delta: float) -> void:
     if is_on_wall():
         x_direction *= -1
+		$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 
     velocity.x = SPEED * x_direction
     move_and_slide()
