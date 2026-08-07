@@ -19,8 +19,8 @@ Nodes are the building blocks to your scenes, and thus, your game. They can fulf
 
 ## Player Setup
 1) From the Scene Dock, create the new player scene by pressing `Other Node` and add a `CharacterBody2D` node to the current scenes
-    - A `ChracterBody2D` node is used for implementing moving objects and, since this is the first node in this scene, it will automatically become the root node
-2) Double click on this newly created node and rename it to player
+    - A `CharacterBody2D` node is used for implementing moving objects and, since this is the first node in this scene, it will automatically become the root node
+2) Double click on this newly created node and rename it to Player
     - Always rename your root nodes as soon as possible to keep everything neat!
 3) Right click on the root player node and add a 'Sprite2D' node as a child.   
 ![player with sprite](../images/section-1/player_with_sprite.png) 
@@ -31,7 +31,7 @@ Nodes are the building blocks to your scenes, and thus, your game. They can fulf
 6) The `CollisionShape2D` still doesn't have a shape yet. In the inspector, select the shape field dropdown and select `New RectangleShape2D`. Then, resize the blue rectangle in the Scene Dock to fit the player sprite.  
 ![player hitbox](../images/section-1/player_hitbox.png)
 
-Now, save these scenes as `player.tscn` by pressing `Control + S` or using the `Scene` tab from the top-leftmost bar. You should also create a scenes folder for better organization. Do NOT organize files by scenes and scripts however. Simply put, it is a terrible system in Godot.
+Now, save these scenes as `player.tscn` by pressing `Control + S` or using the `Scene` tab from the top-leftmost bar. You should also create a new folder for better organization. Do NOT organize files by scenes and scripts however. Simply put, it is a terrible system in Godot.
 
 
 > For node names, we generally utilize PascalCase, where each first letter of each word is capitlized. In this tutorial, when we save scenes to the filesystem, we will use snake_case. This is when all letters are lowercase and spaces are replaced with underscores. Strive to keep a consistent naming scheme throughout your projects!
@@ -113,7 +113,7 @@ else:
 
 The `CharacterBody2D` node also provides us with useful functionality to manage movement:  
 *You can access all these variables and methods anywhere in the script as the script extends the `CharacterBody2D` node*
-- `velocity: Vector2D`: This variable holds the current velocity of the player.
+- `velocity: Vector2`: This variable holds the current velocity of the player.
     - This node has 2 properties, x and y, representing the horizontal and vertical velocities respectively. You can access them with `velocity.x` or `velocity.y`.
 - `move_and_slide()`: This function moves the `CharacterBody2D` based on `velocity`. Godot will automatically detect collisions and calculate movement for you! It should be used after you update the velocity. 
 - `is_on_floor() -> bool`: This function will return true if the player is on the floor. This will be useful later when we implement jumping.
