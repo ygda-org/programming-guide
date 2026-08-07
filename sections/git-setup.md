@@ -60,4 +60,4 @@ Congrats! You're officially done with our programming guide! Share your GitHub r
 ### Furthering your knowledge
 
 
-talk about other git stuff like pulling, branches, etc etc etc in preparation for tj rpg
+talk about other git stuff like pulling, branches, etc etc etc in preparation for stuff
