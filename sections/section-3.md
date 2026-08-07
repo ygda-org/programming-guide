@@ -1,6 +1,6 @@
 # Improving our player
 
-Right now, our player has the ability to walk left, to walk right, and to fall of a cliff! However, we can't jump off the cliff yet, so lets fix that.
+Right now, our player has the ability to walk left, to walk right, and to fall of a cliff! However, we can't **jump** off the cliff yet, so lets fix that.
 
 ## Using an Input Map
 
