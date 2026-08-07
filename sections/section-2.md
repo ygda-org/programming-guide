@@ -46,7 +46,7 @@ You can select the different tiles and paint them in the workspace. There is a r
 
 ## Testing the game
 
-If you did everything right, now you should have a playable game! First though we have to select the scene godot should start the game from. Right click on `world.tscn` on the filesystem and press "Set as Main Scene".    
+If you did everything right, now you should have a playable game! First though we have to select the scene Godot should start the game from. Right click on `world.tscn` on the filesystem and press "Set as Main Scene".    
 ![setting main scene](../images/section-2/setting-main-scene.png)
 
 
