@@ -59,8 +59,6 @@ Now continue with these steps:
 - At the top center, change the scene from '3D' to '2D' mode.
 - Go to `Project` in the toolbar and click on `Project Settings`, then change the following settings in the General section (use the search bar):  
 
-    - `Rendering -> 2D -> Snap 2D Transformations to Pixel`: **On**
-    - `Rendering -> 2D -> Snap 2D Vertices to Pixel`: **On**
     - `Rendering -> Textures -> Default Texture Filter`: **Nearest**
 
     *This is because we will be using pixel art in our game, and we need the images to be pixel-perfect.*
